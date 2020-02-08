@@ -1,0 +1,197 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>Application</class>
+ <widget class="QMainWindow" name="Application">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>1025</width>
+    <height>600</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>Home library</string>
+  </property>
+  <widget class="QWidget" name="centralwidget">
+   <layout class="QVBoxLayout" name="verticalLayout_3">
+    <item>
+     <layout class="QHBoxLayout" name="optionsLayout">
+      <item>
+       <widget class="QLabel" name="filterLabel">
+        <property name="text">
+         <string>Filter:</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QComboBox" name="filterComboBox">
+        <item>
+         <property name="text">
+          <string>ISBN</string>
+         </property>
+        </item>
+        <item>
+         <property name="text">
+          <string>Title</string>
+         </property>
+        </item>
+        <item>
+         <property name="text">
+          <string>Author</string>
+         </property>
+        </item>
+        <item>
+         <property name="text">
+          <string>Category</string>
+         </property>
+        </item>
+        <item>
+         <property name="text">
+          <string>Language</string>
+         </property>
+        </item>
+        <item>
+         <property name="text">
+          <string>Publishing</string>
+         </property>
+        </item>
+        <item>
+         <property name="text">
+          <string>Publishing date</string>
+         </property>
+        </item>
+        <item>
+         <property name="text">
+          <string>Series</string>
+         </property>
+        </item>
+        <item>
+         <property name="text">
+          <string>Loaned</string>
+         </property>
+        </item>
+       </widget>
+      </item>
+      <item>
+       <widget class="QPushButton" name="rentPushButton">
+        <property name="text">
+         <string>Rent</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <spacer name="horizontalSpacer">
+        <property name="orientation">
+         <enum>Qt::Horizontal</enum>
+        </property>
+        <property name="sizeHint" stdset="0">
+         <size>
+          <width>40</width>
+          <height>20</height>
+         </size>
+        </property>
+       </spacer>
+      </item>
+     </layout>
+    </item>
+    <item>
+     <layout class="QVBoxLayout" name="tableLayout"/>
+    </item>
+   </layout>
+  </widget>
+  <widget class="QMenuBar" name="menubar">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>0</y>
+     <width>1025</width>
+     <height>22</height>
+    </rect>
+   </property>
+   <widget class="QMenu" name="menuFile">
+    <property name="title">
+     <string>File</string>
+    </property>
+    <addaction name="actionNew"/>
+    <addaction name="actionOpen"/>
+    <addaction name="separator"/>
+    <addaction name="actionSave"/>
+    <addaction name="actionSave_as"/>
+    <addaction name="separator"/>
+    <addaction name="actionClose"/>
+   </widget>
+   <widget class="QMenu" name="menuBooks">
+    <property name="title">
+     <string>Books</string>
+    </property>
+    <addaction name="actionAdd"/>
+    <addaction name="actionMake_copy"/>
+    <addaction name="actionRemove"/>
+    <addaction name="actionRemove_2"/>
+   </widget>
+   <widget class="QMenu" name="menuSettings">
+    <property name="title">
+     <string>Settings</string>
+    </property>
+    <addaction name="actionDictionaries"/>
+   </widget>
+   <addaction name="menuFile"/>
+   <addaction name="menuBooks"/>
+   <addaction name="menuSettings"/>
+  </widget>
+  <widget class="QStatusBar" name="statusbar"/>
+  <action name="actionNew">
+   <property name="text">
+    <string>New</string>
+   </property>
+  </action>
+  <action name="actionOpen">
+   <property name="text">
+    <string>Open</string>
+   </property>
+  </action>
+  <action name="actionSave">
+   <property name="text">
+    <string>Save</string>
+   </property>
+  </action>
+  <action name="actionSave_as">
+   <property name="text">
+    <string>Save as...</string>
+   </property>
+  </action>
+  <action name="actionClose">
+   <property name="text">
+    <string>Close</string>
+   </property>
+  </action>
+  <action name="actionAdd">
+   <property name="text">
+    <string>Add</string>
+   </property>
+  </action>
+  <action name="actionMake_copy">
+   <property name="text">
+    <string>Make copy</string>
+   </property>
+  </action>
+  <action name="actionRemove">
+   <property name="text">
+    <string>Edit</string>
+   </property>
+  </action>
+  <action name="actionRemove_2">
+   <property name="text">
+    <string>Remove</string>
+   </property>
+  </action>
+  <action name="actionDictionaries">
+   <property name="text">
+    <string>Dictionaries</string>
+   </property>
+  </action>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>
