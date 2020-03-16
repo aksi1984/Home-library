@@ -4,16 +4,25 @@
 #include <QFile>
 #include <QTextStream>
 
+enum ResourceType
+{
+    String,
+    StringList
+};
+
 class FileInput
 {
 public:
     FileInput();
 
-    void load(const QString& fileName);
-    QStringList get() const noexcept;
+    void load(const QString& fileName, ResourceType type, QWidget* parent);
+    void loadStr(const QString& fileName);
+    QStringList getList() const noexcept;
+    QString getStr() const noexcept;
 
 private:
-    QStringList text;
+    QStringList strList_;
+    QString str_;
 };
 
 #endif // FILEINPUT_HPP

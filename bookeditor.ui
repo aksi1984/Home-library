@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>857</width>
-    <height>619</height>
+    <width>601</width>
+    <height>670</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -236,23 +236,23 @@
             </layout>
            </item>
            <item>
-            <spacer name="verticalSpacer">
+            <spacer name="verticalSpacer_2">
              <property name="orientation">
               <enum>Qt::Vertical</enum>
              </property>
-             <property name="sizeType">
-              <enum>QSizePolicy::Maximum</enum>
-             </property>
              <property name="sizeHint" stdset="0">
               <size>
-               <width>10</width>
-               <height>90</height>
+               <width>20</width>
+               <height>40</height>
               </size>
              </property>
             </spacer>
            </item>
            <item>
             <layout class="QHBoxLayout" name="middleLayout_1">
+             <property name="topMargin">
+              <number>15</number>
+             </property>
              <item>
               <widget class="QGroupBox" name="bookRatingGroup">
                <property name="title">
@@ -439,6 +439,22 @@
             </layout>
            </item>
           </layout>
+         </item>
+         <item>
+          <spacer name="verticalSpacer">
+           <property name="orientation">
+            <enum>Qt::Vertical</enum>
+           </property>
+           <property name="sizeType">
+            <enum>QSizePolicy::Maximum</enum>
+           </property>
+           <property name="sizeHint" stdset="0">
+            <size>
+             <width>10</width>
+             <height>90</height>
+            </size>
+           </property>
+          </spacer>
          </item>
         </layout>
        </widget>
@@ -640,7 +656,7 @@
                   <item row="2" column="0">
                    <widget class="QLabel" name="salePriceLabel">
                     <property name="text">
-                     <string>TextLabel</string>
+                     <string>Price</string>
                     </property>
                    </widget>
                   </item>
@@ -787,13 +803,6 @@
     </layout>
    </item>
    <item>
-    <widget class="Line" name="line">
-     <property name="orientation">
-      <enum>Qt::Horizontal</enum>
-     </property>
-    </widget>
-   </item>
-   <item>
     <layout class="QHBoxLayout" name="bottomLayout">
      <item>
       <spacer name="horizontalSpacer">
@@ -809,9 +818,9 @@
       </spacer>
      </item>
      <item>
-      <widget class="QPushButton" name="printButton">
+      <widget class="QPushButton" name="pdfButton">
        <property name="text">
-        <string>Print</string>
+        <string>Create Pdf</string>
        </property>
       </widget>
      </item>
@@ -830,9 +839,9 @@
       </widget>
      </item>
      <item>
-      <widget class="QPushButton" name="buttonCancel">
+      <widget class="QPushButton" name="buttonClose">
        <property name="text">
-        <string>Cancel</string>
+        <string>Close</string>
        </property>
       </widget>
      </item>

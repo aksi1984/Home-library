@@ -7,6 +7,11 @@ Book BooksCollection::getBook(int index) noexcept
     return books_[index];
 }
 
+QVector<Book> BooksCollection::get()
+{
+    return books_;
+}
+
 void BooksCollection::addBook(const Book &book)
 {
     books_.push_back(book);

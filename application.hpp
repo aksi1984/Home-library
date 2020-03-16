@@ -1,14 +1,20 @@
-#ifndef APPLICATION_H
-#define APPLICATION_H
+#ifndef APPLICATION_HPP
+#define APPLICATION_HPP
 
 #include <QMainWindow>
 #include <QTimer>
+#include <QDockWidget>
 
-#include "tableofbooks.hpp"
 #include "bookscollection.hpp"
 #include "bookeditor.hpp"
 #include "dictionaries.hpp"
+#include "iconencoding.hpp"
 #include "fileinput.hpp"
+#include "table.hpp"
+#include "tree.hpp"
+#include "shortdescription.hpp"
+#include "actionsrange.hpp"
+#include "stylesheets.hpp"
 
 QT_BEGIN_NAMESPACE
 namespace Ui { class Application; }
@@ -28,15 +34,22 @@ private slots:
     void openBookEditor();
     void editBook();
     void removeBook();
+    void updateSelectedTableRow();
     void updateButtonsEnabled();
+    void showText();
+    void createTableContextMenu();
 
 private:
     Ui::Application *ui;
 
+    void createDockWidgets();
+    void createToolBar();
     void initTimer();
     void initConnect();
 
     QTimer timer_;
-    TableOfBooks* tableOfBooks;
+    Table* table_;
+    Tree* tree_;
+    ShortDescription* shortDecription_;
 };
-#endif // APPLICATION_H
+#endif // APPLICATION_HPP

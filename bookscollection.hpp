@@ -14,6 +14,7 @@ public:
     BooksCollection& operator=(const BooksCollection& rhs) = delete;
 
     static Book getBook(int index) noexcept;
+    static QVector<Book> get();
     static void addBook(const Book& book);
     static void updateBook(const Book& book, int index);
     static void removeBook(int index);

@@ -1,4 +1,20 @@
-#ifndef COMMON_H
-#define COMMON_H
+#ifndef COMMON_HPP
+#define COMMON_HPP
 
-#endif // COMMON_H
+#include <QStringList>
+
+static QStringList labels
+{
+    "Title",
+    "Author",
+    "Edited by",
+    "Category",
+    "Publisher",
+    "Place of publication",
+    "Printing house",
+    "Language",
+    "ISBN",
+    "ID",
+};
+
+#endif // COMMON_HPP

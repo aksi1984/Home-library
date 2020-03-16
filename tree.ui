@@ -1,21 +1,87 @@
+<?xml version="1.0" encoding="UTF-8"?>
 <ui version="4.0">
- <author/>
- <comment/>
- <exportmacro/>
  <class>Tree</class>
  <widget class="QWidget" name="Tree">
   <property name="geometry">
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>400</width>
-    <height>300</height>
+    <width>216</width>
+    <height>353</height>
    </rect>
   </property>
   <property name="windowTitle">
    <string>Form</string>
   </property>
+  <property name="styleSheet">
+   <string notr="true"/>
+  </property>
+  <layout class="QVBoxLayout" name="verticalLayout">
+   <item>
+    <widget class="QComboBox" name="comboBox">
+     <item>
+      <property name="text">
+       <string>Title</string>
+      </property>
+     </item>
+     <item>
+      <property name="text">
+       <string>Author</string>
+      </property>
+     </item>
+     <item>
+      <property name="text">
+       <string>Edited for</string>
+      </property>
+     </item>
+     <item>
+      <property name="text">
+       <string>Category</string>
+      </property>
+     </item>
+     <item>
+      <property name="text">
+       <string>Publisher</string>
+      </property>
+     </item>
+     <item>
+      <property name="text">
+       <string>Place of publication</string>
+      </property>
+     </item>
+     <item>
+      <property name="text">
+       <string>Printing house</string>
+      </property>
+     </item>
+     <item>
+      <property name="text">
+       <string>Language</string>
+      </property>
+     </item>
+     <item>
+      <property name="text">
+       <string>ISBN</string>
+      </property>
+     </item>
+     <item>
+      <property name="text">
+       <string>ID</string>
+      </property>
+     </item>
+    </widget>
+   </item>
+   <item>
+    <widget class="QStackedWidget" name="stackedWidget">
+     <property name="currentIndex">
+      <number>1</number>
+     </property>
+     <widget class="QWidget" name="page"/>
+     <widget class="QWidget" name="page_2"/>
+    </widget>
+   </item>
+  </layout>
  </widget>
- <pixmapfunction/>
+ <resources/>
  <connections/>
 </ui>

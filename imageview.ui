@@ -7,7 +7,7 @@
     <x>0</x>
     <y>0</y>
     <width>227</width>
-    <height>66</height>
+    <height>339</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -18,20 +18,9 @@
   </property>
   <layout class="QVBoxLayout" name="verticalLayout_2">
    <item>
-    <layout class="QVBoxLayout" name="imageLayout">
+    <layout class="QVBoxLayout" name="verticalLayout">
      <item>
-      <widget class="QLabel" name="imageLabel">
-       <property name="styleSheet">
-        <string notr="true">QLabel
-{
-	background: white;
-	border: 1px solid gray;
-}</string>
-       </property>
-       <property name="text">
-        <string/>
-       </property>
-      </widget>
+      <widget class="QGraphicsView" name="graphicsView"/>
      </item>
     </layout>
    </item>

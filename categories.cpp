@@ -4,11 +4,11 @@ QStringList Categories::names;
 
 Categories::Categories() { }
 
-void Categories::load()
+void Categories::load(QWidget* parent)
 {
     FileInput fileInput;
-    fileInput.load(R"(D:\Documents\Projects\HomeLibrary\txt\categories.txt)");
-    names = fileInput.get();
+    fileInput.load(R"(D:\Documents\Projects\HomeLibrary\txt\categories.txt)", ResourceType::StringList, parent);
+    names = fileInput.getList();
 }
 
 void Categories::save()

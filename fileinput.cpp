@@ -3,22 +3,51 @@
 
 FileInput::FileInput() { }
 
-void FileInput::load(const QString &fileName)
+void FileInput::load(const QString &fileName, ResourceType type, QWidget *parent)
 {
     QFile file(fileName);
 
-    if(file.open(QIODevice::ReadOnly | QIODevice::Text))
+    if(!file.open(QIODevice::ReadOnly | QIODevice::Text))
+    {
+        QMessageBox::warning(parent,
+                             "Warning",
+                             "Unable to load file " + fileName +
+                             ". Invalid file type of file does not exist",
+                             QMessageBox::Ok
+                             );
+
+        return;
+    }
+    else
     {
         QTextStream textStream(&file);
 
         while(!textStream.atEnd())
         {
-            text.push_back(textStream.readLine());
+            switch(type)
+            {
+                case ResourceType::String:
+                {
+                    str_ += textStream.readLine() + "\n";
+                }
+                break;
+
+                case ResourceType::StringList:
+                {
+                    strList_.push_back(textStream.readLine());
+                }
+                break;
+            }
         }
     }
 }
 
-QStringList FileInput::get() const noexcept
+QStringList FileInput::getList() const noexcept
 {
-    return text;
+    return strList_;
+}
+
+QString FileInput::getStr() const noexcept
+{
+    return str_;
 }

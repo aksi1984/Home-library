@@ -6,10 +6,13 @@
 BookEditor::BookEditor(QWidget *parent) :
     QDialog(parent),
     ui(new Ui::BookEditor),
-    imageViev_{new ImageView},
-    noFilledStyleSheet_{"background: #f4c2b7;"}
+    imageViev_{new ImageView(parent)},
+    noFilledStyleSheet_{"border: 1px solid #ca1010;"},
+    changesHaveBeenSaved_{true},
+    firstTimeSaved_{false}
 {
     ui->setupUi(this);
+
     ui->imageViewLayout->addWidget(imageViev_);
 
     defaultStyleSheet_ = ui->titleLine->styleSheet();
@@ -17,13 +20,18 @@ BookEditor::BookEditor(QWidget *parent) :
     setMaximumOfDateWidget();
     initTimer();
     initConnect();
+
+    QLocale locale;
+    ui->purchasePriceSpin->setSuffix(" " + locale.currencySymbol());
+    ui->purchaseValuationSpin->setSuffix(" " + locale.currencySymbol());
 }
 
 BookEditor::BookEditor(const Book& reqBook, QWidget* parent) :
     QDialog{parent},
     ui{new Ui::BookEditor},
     book_{reqBook},
-    imageViev_{new ImageView}
+    imageViev_{new ImageView},
+    changesHaveBeenSaved_{true}
 {
     ui->setupUi(this);
     ui->imageViewLayout->addWidget(imageViev_);
@@ -54,10 +62,19 @@ void BookEditor::initConnect()
 {
     connect(&timer_, &QTimer::timeout, this, &BookEditor::updateWidgetsState);
     connect(ui->categoryButton, &QPushButton::clicked, this, &BookEditor::openCategories);
-    connect(ui->buttonOK, &QPushButton::clicked, this, &BookEditor::saveBook);
-    connect(ui->buttonCancel, &QPushButton::clicked, this, &BookEditor::reject);
+    connect(ui->pdfButton, &QPushButton::clicked, this, &BookEditor::createPdf);
+    connect(ui->buttonSave, &QPushButton::clicked, this, &BookEditor::saveBook);
+    connect(ui->buttonOK, &QPushButton::clicked, this, &BookEditor::accept);
+    connect(ui->buttonClose, &QPushButton::clicked, this, &BookEditor::aboutClose);
     connect(imageViev_, &ImageView::imageWasLoaded, this, &BookEditor::addImage);
     connect(imageViev_, &ImageView::imageWasRemoved, this, &BookEditor::removeImage);
+
+    QList<QLineEdit*> lineEdits = ui->tabWidget->findChildren<QLineEdit*>();
+
+    for(auto lineEdit : lineEdits)
+    {
+        connect(lineEdit, &QLineEdit::textChanged, this, &BookEditor::dataWasBeenChanged);
+    }
 }
 
 void BookEditor::openCategories()
@@ -74,12 +91,16 @@ void BookEditor::addImage()
 {
     BookImage image(imageViev_->fileName());
     book_.setImage(image);
+
+    changesHaveBeenSaved_ = false;
 }
 
 void BookEditor::removeImage()
 {
     BookImage image;
     book_.setImage(image);
+
+    changesHaveBeenSaved_ = false;
 }
 
 void BookEditor::saveBook()
@@ -99,7 +120,12 @@ void BookEditor::saveBook()
     saveAdditives();
     saveDescritpion();
 
-    emit accept();
+    changesHaveBeenSaved_ = true;
+
+    if(!firstTimeSaved_)
+    {
+        firstTimeSaved_ = true;
+    }
 }
 
 void BookEditor::saveBasic()
@@ -110,7 +136,8 @@ void BookEditor::saveBasic()
 
     for(int i = 0; i < 15; ++i)
     {
-        data.push_back(children[i]->text());
+        QString text = ( !children[i]->text().isEmpty() ? children[i]->text() : "-" );
+        data.push_back(text);
     }
 
     BookBasic bookBasic(data);
@@ -155,7 +182,7 @@ void BookEditor::saveSeries()
 
 void BookEditor::saveTranslation()
 {
-    BookTranslation translation(ui->fromLanguageLine->text(), ui->translationAuthor->text());
+    BookTranslation translation(ui->fromLanguageLine->text(), ui->translationAuthorLine->text());
     book_.setTranslation(translation);
 }
 
@@ -363,9 +390,11 @@ void BookEditor::updateStyleSheet(bool isFilled)
 
 void BookEditor::updateButtonsEnabled(bool isFilled)
 {
-    ui->printButton->setEnabled(isFilled);
-    ui->buttonSave->setEnabled(isFilled);
-    ui->buttonOK->setEnabled(isFilled);
+    ui->pdfButton->setEnabled(isFilled);
+    ui->buttonOK->setEnabled(isFilled && firstTimeSaved_);
+
+    bool saveButtonEnabled = ( changesHaveBeenSaved_ ? false : true );
+    ui->buttonSave->setEnabled(saveButtonEnabled);
 }
 
 void BookEditor::updateWidgetsState()
@@ -376,9 +405,87 @@ void BookEditor::updateWidgetsState()
     updateButtonsEnabled(isFilled);
 }
 
+void BookEditor::dataWasBeenChanged()
+{
+    changesHaveBeenSaved_ = false;
+}
+
+void BookEditor::createPdf()
+{
+    PdfSettings pdfSettings(this);
+
+    if(pdfSettings.exec() == QDialog::Accepted)
+    {
+        saveToFile(this, book_, pdfSettings.checked());
+    }
+}
+
+void BookEditor::aboutClose()
+{
+    if(!changesHaveBeenSaved_)
+    {
+        int ret = closeWarning();
+
+        switch(ret)
+        {
+        case QMessageBox::Save:
+            {
+                saveBook();
+
+                QDialog::accept();
+            }
+            break;
+        case QMessageBox::No:
+            {
+                QDialog::reject();
+            }
+            break;
+        default:
+            break;
+        }
+    }
+    else
+    {
+        QDialog::reject();
+    }
+}
+
+void BookEditor::closeEvent(QCloseEvent *event)
+{
+    if(!changesHaveBeenSaved_ && !firstTimeSaved_)
+    {
+        int ret = closeWarning();
+
+        switch(ret)
+        {
+            case QMessageBox::Save:
+            {
+                saveBook();
+                event->accept();
+                QDialog::accept();
+            }
+            break;
+            case QMessageBox::Cancel:
+            {
+                event->ignore();
+            }
+            break;
+        default:
+            break;
+        }
+    }
+}
+
+int BookEditor::closeWarning()
+{
+    int ret = QMessageBox::warning(this, "Warning", "The document has been modified\n"
+                                   "Do you want to save your changes ?",
+                                   QMessageBox::Save | QMessageBox::No | QMessageBox::Cancel);
+
+    return ret;
+}
 
 Book BookEditor::book() const noexcept
 {
     return book_;
 }
-

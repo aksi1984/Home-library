@@ -3,6 +3,7 @@
 
 #include "categories.hpp"
 #include "objectsnames.hpp"
+#include "stylesheets.hpp"
 
 class Configuration
 {
@@ -14,6 +15,7 @@ public:
 private:
     static void loadCategories();
     static void loadObjectsNames();
+    static void loadStyleSheets();
 };
 
 #endif // CONFIGURATION_HPP

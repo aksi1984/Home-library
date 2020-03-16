@@ -5,6 +5,7 @@
 #include <QFileDialog>
 #include <QPicture>
 #include <QTimer>
+#include <QGraphicsScene>
 
 namespace Ui {
 class ImageView;
@@ -36,13 +37,15 @@ private:
     void initTimer();
     void initConnect();
     void loadPixmap();
-    void fitToLabel(QPixmap &pixmap);
+    bool isSceneEmpty();
 
     QTimer timer_;
     QString fileName_;
 
     const int labelWidth_;
     const int labelHeight_;
+
+    QGraphicsScene scene_;
 };
 
 #endif // IMAGEVIEW_HPP

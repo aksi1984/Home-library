@@ -1,2 +1,8 @@
-<!DOCTYPE RCC>
-<RCC version="1.0"/>
+<RCC>
+    <qresource prefix="/new/prefix1">
+        <file>icons/Font Awesome 5 Free-Solid-900.otf</file>
+        <file>stylesheets/styles.css</file>
+        <file>icons/arrow_down.png</file>
+        <file>icons/arrow_up.png</file>
+    </qresource>
+</RCC>

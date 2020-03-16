@@ -9,7 +9,7 @@ class Categories
 public:
     Categories();
 
-    static void load();
+    static void load(QWidget *parent = nullptr);
     static void save();
     static QStringList get() noexcept;
     static void insert(int index, const QString& text);
@@ -18,7 +18,6 @@ public:
 private:
 
     static QStringList names;
-
 };
 
 #endif // CATEGORIES_HPP

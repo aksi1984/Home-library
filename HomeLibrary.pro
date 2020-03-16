@@ -1,4 +1,5 @@
 QT       += core gui
+QT       += printsupport
 
 greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 
@@ -38,16 +39,28 @@ SOURCES += \
     dictionaries.cpp \
     fileinput.cpp \
     general.cpp \
+    iconencoding.cpp \
     imageview.cpp \
     main.cpp \
     application.cpp \
+    menueditor.cpp \
     newcategorydialog.cpp \
     objectsnames.cpp \
+    othercategory.cpp \
+    pdfdocument.cpp \
+    pdfsettings.cpp \
+    shortdescription.cpp \
+    stackedwidgeteditor.cpp \
     storageplace.cpp \
-    tableofbooks.cpp
+    stylesheets.cpp \
+    table.cpp \
+    tableeditor.cpp \
+    tree.cpp \
+    treeseditor.cpp
 
 HEADERS += \
-    application.h \
+    actionsrange.hpp \
+    application.hpp \
     book.hpp \
     bookadditives.hpp \
     bookbasic.hpp \
@@ -66,15 +79,27 @@ HEADERS += \
     booktranslation.hpp \
     categories.hpp \
     categoryselection.hpp \
+    common.hpp \
     configuration.hpp \
     dictionaries.hpp \
     fileinput.hpp \
     general.hpp \
+    iconencoding.hpp \
     imageview.hpp \
+    menueditor.hpp \
     newcategorydialog.hpp \
     objectsnames.hpp \
+    othercategory.hpp \
+    pdfdocument.hpp \
+    pdfsettings.hpp \
+    shortdescription.hpp \
+    stackedwidgeteditor.hpp \
     storageplace.hpp \
-    tableofbooks.hpp
+    stylesheets.hpp \
+    table.hpp \
+    tableeditor.hpp \
+    tree.hpp \
+    treeseditor.hpp
 
 FORMS += \
     application.ui \
@@ -84,9 +109,16 @@ FORMS += \
     dictionaries.ui \
     imageview.ui \
     newcategorydialog.ui \
-    tablebooks.ui
+    othercategory.ui \
+    pdfsettings.ui \
+    shortdescription.ui \
+    table.ui \
+    tree.ui
 
 # Default rules for deployment.
 qnx: target.path = /tmp/$${TARGET}/bin
 else: unix:!android: target.path = /opt/$${TARGET}/bin
 !isEmpty(target.path): INSTALLS += target
+
+RESOURCES += \
+    Resource.qrc

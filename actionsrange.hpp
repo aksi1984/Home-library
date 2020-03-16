@@ -1,4 +1,19 @@
-#ifndef ACTIONSRANGE_H
-#define ACTIONSRANGE_H
+#ifndef ACTIONSRANGE_HPP
+#define ACTIONSRANGE_HPP
 
-#endif // ACTIONSRANGE_H
+#include <QAction>
+
+
+inline QList<QAction*> actionsInRange(int begin, int end, QList<QAction*> source)
+{
+    QList<QAction*> actions;
+
+    for(int i = begin; i < end; ++i)
+    {
+        actions.insert(i, source[i]);
+    }
+
+    return  actions;
+}
+
+#endif // ACTIONSRANGE_HPP

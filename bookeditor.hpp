@@ -2,10 +2,27 @@
 #define BOOKEDITOR_HPP
 
 #include <QDialog>
+#include <QCloseEvent>
+#include <QLocale>
+#include <QMessageBox>
 
 #include "categoryselection.hpp"
 #include "book.hpp"
 #include "imageview.hpp"
+#include "pdfdocument.hpp"
+#include "pdfsettings.hpp"
+
+inline void saveToFile(QWidget* widget, const Book& book, const QVector<int>& checked)
+{
+    QString fileName = QFileDialog::getSaveFileName(widget, "Save", "/home", "PDF document(*.pdf)");
+    QList<QLabel*> labels = widget->findChildren<QLabel*>();
+
+    PdfDocument pdfDocument(fileName, book, labels, checked);
+    pdfDocument.start();
+
+    QMessageBox::information(widget, "File saved", "File saved in path: " + fileName + ".", QMessageBox::ButtonRole::ApplyRole);
+}
+
 
 namespace Ui {
 class BookEditor;
@@ -28,6 +45,10 @@ private slots:
     void addImage();
     void removeImage();
     void updateWidgetsState();
+    void dataWasBeenChanged();
+    void createPdf();
+
+    void aboutClose();
 
 private:
     Ui::BookEditor *ui;
@@ -71,6 +92,9 @@ private:
     void updateStyleSheet(bool isFilled);
     void updateButtonsEnabled(bool isFilled);
 
+    int closeWarning();
+    virtual void closeEvent(QCloseEvent *) override;
+
     QStringList generalData_;
 
     Book book_;
@@ -79,6 +103,9 @@ private:
 
     QString defaultStyleSheet_;
     QString noFilledStyleSheet_;
+
+    bool changesHaveBeenSaved_;
+    bool firstTimeSaved_;
 };
 
 #endif // BOOKEDITOR_HPP

@@ -10,8 +10,7 @@ ImageView::ImageView(QWidget *parent) :
 {
     ui->setupUi(this);
 
-    ui->imageLabel->setAlignment(Qt::AlignCenter);
-    ui->imageLabel->setFixedSize(labelWidth_, labelHeight_);
+    ui->graphicsView->setScene(&scene_);
 
     initTimer();
     initConnect();
@@ -50,30 +49,21 @@ void ImageView::loadPixmap()
 {
     QPixmap pixmap(fileName_);
 
-    fitToLabel(pixmap);
-    ui->imageLabel->setPixmap(pixmap);
-}
-
-void ImageView::fitToLabel(QPixmap& pixmap)
-{
-    int width = pixmap.width();
-    int height = pixmap.height();
-
-    while(width > ui->imageLabel->width() || height > ui->imageLabel->height())
+    if(!isSceneEmpty())
     {
-        width /= 2;
-        height /= 2;
+        scene_.clear();
     }
 
-    QPixmap scaledPixmap(pixmap);
-    pixmap = scaledPixmap.scaled(width, height, Qt::KeepAspectRatio, Qt::SmoothTransformation);
+    scene_.addPixmap(pixmap);
+    ui->graphicsView->fitInView(scene_.itemsBoundingRect(), Qt::KeepAspectRatio);
 }
 
 // Slots
 
 void ImageView::updateRemoveButtonEnabled()
 {
-    bool enabled = ( ui->imageLabel->pixmap() != nullptr ? true : false );
+    bool enabled = ( isSceneEmpty() ? false : true );
+
     ui->buttonRemove->setEnabled(enabled);
 }
 
@@ -97,7 +87,12 @@ void ImageView::loadImage()
 
 void ImageView::removeImage()
 {
-    ui->imageLabel->clear();
+    scene_.clear();
 
     emit imageWasRemoved();
+}
+
+bool ImageView::isSceneEmpty()
+{
+    return scene_.items().isEmpty();
 }

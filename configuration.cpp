@@ -6,6 +6,7 @@ void Configuration::load()
 {
     loadCategories();
     loadObjectsNames();
+    loadStyleSheets();
 }
 
 void Configuration::loadCategories()
@@ -16,4 +17,9 @@ void Configuration::loadCategories()
 void Configuration::loadObjectsNames()
 {
     ObjectsNames::init();
+}
+
+void Configuration::loadStyleSheets()
+{
+    StyleSheets::load();
 }
