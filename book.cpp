@@ -2,42 +2,152 @@
 
 Book::Book() { }
 
-void Book::setGeneral(const General &reqGeneral)
+void Book::setBasic(const BookBasic &bookBasic)
 {
-    general_ = reqGeneral;
+    basic_ = bookBasic;
 }
 
-void Book::setBookRating(const BookRating &rating)
+BookBasic Book::basic() const noexcept
 {
-    bookRating_ = rating;
+    return basic_;
 }
 
-void Book::setStoragePlace(const StoragePlace &place)
+void Book::setBasicNumbers(const BookBasicNumbers &bookBasic)
 {
-    storagePlace_ = place;
+    basicNumbers_ = bookBasic;
 }
 
-void Book::setBookPurchase(const BookPurchase &purchase)
+BookBasicNumbers Book::basicNumbers() const noexcept
 {
-    bookPurchase_ = purchase;
+    return basicNumbers_;
 }
 
-General Book::general() const noexcept
+void Book::setRating(const BookRating &bookRating)
 {
-    return general_;
+    rating_ = bookRating;
 }
 
-BookRating Book::bookRating() const noexcept
+BookRating Book::rating() const noexcept
 {
-    return bookRating_;
+    return rating_;
 }
 
-StoragePlace Book::storagePlace() const noexcept
+void Book::setStorageLocation(const StorageLocation &location)
 {
-    return storagePlace_;
+    storageLocation_ = location;
 }
 
-BookPurchase Book::bookPurchase() const noexcept
+StorageLocation Book::storageLocation() const noexcept
 {
-    return bookPurchase_;
+    return storageLocation_;
+}
+
+void Book::setPurchase(const BookPurchase &bookPurchase)
+{
+    purchase_ = bookPurchase;
+}
+
+BookPurchase Book::purchase() const noexcept
+{
+    return purchase_;
+}
+
+void Book::setSeries(const BookSeries &bookSeries)
+{
+    series_ = bookSeries;
+}
+
+BookSeries Book::series() const noexcept
+{
+    return series_;
+}
+
+void Book::setTranslation(const BookTranslation &bookTranslation)
+{
+    translation_ = bookTranslation;
+}
+
+BookTranslation Book::translation() const noexcept
+{
+    return translation_;
+}
+
+void Book::setLoaned(const BookRentalStatus &rentalStatus)
+{
+    loaned_ = rentalStatus;
+}
+
+BookRentalStatus Book::loaned() const noexcept
+{
+    return loaned_;
+}
+
+void Book::setLent(const BookRentalStatus &rentalStatus)
+{
+    lent_ = rentalStatus;
+}
+
+BookRentalStatus Book::lent() const noexcept
+{
+    return lent_;
+}
+
+void Book::setSale(const BookSale &bookSale)
+{
+    sale_ = bookSale;
+}
+
+BookSale Book::sale() const noexcept
+{
+    return sale_;
+}
+
+void Book::setStatus(const BookStatus &bookStatus)
+{
+    status_ = bookStatus;
+}
+
+BookStatus Book::status() const noexcept
+{
+    return status_;
+}
+
+void Book::setSourceOfOrigin(const BookSourceOfOrigin &bookSourceOfOrigin)
+{
+    sourceOfOrigin_ = bookSourceOfOrigin;
+}
+
+BookSourceOfOrigin Book::sourceOfOrigin() const noexcept
+{
+    return sourceOfOrigin_;
+}
+
+void Book::setAdditives(const BookAdditives &bookAdditives)
+{
+    additives_ = bookAdditives;
+}
+
+BookAdditives Book::additives() const noexcept
+{
+    return additives_;
+}
+
+void Book::setDescription(const BookDescriprion &bookDesription)
+{
+    description_ = bookDesription;
+}
+
+BookDescriprion Book::description() const noexcept
+{
+    return description_;
+}
+
+void Book::setImage(const BookImage &image)
+{
+    bookImage_ = image;
+}
+
+BookImage Book::image() const noexcept
+{
+    return bookImage_;
 }

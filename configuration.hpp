@@ -2,6 +2,7 @@
 #define CONFIGURATION_HPP
 
 #include "categories.hpp"
+#include "objectsnames.hpp"
 
 class Configuration
 {
@@ -12,6 +13,7 @@ public:
 
 private:
     static void loadCategories();
+    static void loadObjectsNames();
 };
 
 #endif // CONFIGURATION_HPP

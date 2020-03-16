@@ -2,6 +2,12 @@
 
 BookPurchase::BookPurchase() { }
 
+BookPurchase::BookPurchase(const QString& reqPlace, const QDate& reqDate, double reqPrice, double reqVal) :
+    place_{reqPlace},
+    date_{reqDate},
+    price_{reqPrice},
+    valuation_{reqVal} { }
+
 void BookPurchase::setPlace(const QString &text)
 {
     place_ = text;

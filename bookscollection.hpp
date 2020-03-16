@@ -5,16 +5,17 @@
 
 #include "book.hpp"
 
-class BookCollection
+class BooksCollection
 {
 public:
-    BookCollection() = default;
-    BookCollection(const BookCollection& copy) = delete;
+    BooksCollection() = default;
+    BooksCollection(const BooksCollection& copy) = delete;
 
-    BookCollection& operator=(const BookCollection& rhs) = delete;
+    BooksCollection& operator=(const BooksCollection& rhs) = delete;
 
     static Book getBook(int index) noexcept;
     static void addBook(const Book& book);
+    static void updateBook(const Book& book, int index);
     static void removeBook(int index);
 
 private:

@@ -7,6 +7,7 @@ class BookPurchase
 {
 public:
     BookPurchase();
+    BookPurchase(const QString& reqPlace, const QDate& reqDate, double reqPrice, double reqVal);
 
     void setPlace(const QString& text);
     void setDate(const QDate& reqDate);

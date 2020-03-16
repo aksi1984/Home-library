@@ -2,7 +2,12 @@
 
 BookRating::BookRating() { }
 
-void BookRating::setPoints(unsigned int value)
+BookRating::BookRating(int reqPoints, bool reqIsRead, bool reqIRecomm) :
+    points_{reqPoints},
+    isRead_{reqIsRead},
+    isRecommended_{reqIRecomm} { }
+
+void BookRating::setPoints(int value)
 {
     points_ = value;
 }

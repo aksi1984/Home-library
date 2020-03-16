@@ -1,43 +1,49 @@
 #include "storageplace.hpp"
 
-StoragePlace::StoragePlace() { }
+StorageLocation::StorageLocation() { }
 
-void StoragePlace::setPlaceName(const QString &text)
+StorageLocation::StorageLocation(const QString& reqPlace, const QString& reqRoom, int reqBookst, int reqShelf) :
+    placeName_{reqPlace},
+    room_{reqRoom},
+    bookstand_{reqBookst},
+    shelf_{reqShelf} { }
+
+void StorageLocation::setPlaceName(const QString &text)
 {
     placeName_ = text;
 }
 
-void StoragePlace::setRoom(const QString &text)
+void StorageLocation::setRoom(const QString &text)
 {
     room_ = text;
 }
 
-void StoragePlace::setBookstand(unsigned int value)
+void StorageLocation::setBookstand(int value)
 {
     bookstand_ = value;
 }
 
-void StoragePlace::setShelf(unsigned int value)
+void StorageLocation::setShelf(int value)
 {
     shelf_ = value;
 }
 
-QString StoragePlace::placeName() const noexcept
+QString StorageLocation::placeName() const noexcept
 {
     return placeName_;
 }
 
-QString StoragePlace::room() const noexcept
+QString StorageLocation::room() const noexcept
 {
     return room_;
 }
 
-unsigned StoragePlace::bookstand() const noexcept
+int StorageLocation::bookstand() const noexcept
 {
     return bookstand_;
 }
 
-unsigned StoragePlace::shelf() const noexcept
+int StorageLocation::shelf() const noexcept
 {
     return shelf_;
 }

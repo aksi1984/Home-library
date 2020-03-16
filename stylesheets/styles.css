@@ -1,0 +1,80 @@
+QMenuBar
+{
+	background: black;
+	color: #9c9c9c;
+}
+
+QMenuBar::item:selected
+{
+	background: black;
+	color: white;
+}
+
+QMenu
+{
+	background: black;
+	color: #9c9c9c;
+}
+
+QMenu::separator
+{
+	background: #2b2626;
+	height: 0.5px;
+}
+
+QMenu::item:selected
+{
+	color: white;
+}
+
+QToolBar
+{
+	background: white;
+}
+
+QToolButton
+{
+	background: white;
+	color: black;
+}
+
+QToolButton::disabled
+{
+	background: white;
+	color: #666666;
+}
+
+QToolButton::hover
+{
+	background: black;
+	color: white;
+	border: 1px solid black;
+	border-radius: 5px;
+}
+
+QTableView
+{
+	background: black;
+}
+
+QTableView QHeaderView
+{
+	background: black;
+}
+
+QTableView QHeaderView::section
+{
+	background: black;
+	color: #9c9c9c;
+}
+
+QTableView::item
+{
+	color: #9c9c9c;
+}
+
+QTableView::item:focus
+{
+	background-color: #666666;
+	
+}

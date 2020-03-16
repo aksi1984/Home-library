@@ -3,13 +3,14 @@
 #include <QMessageBox>
 Application::Application(QWidget *parent)
     : QMainWindow(parent)
-    , ui(new Ui::Application),
-      tableBooks(new TableBooks)
+    , ui(new Ui::Application)
+    , tableOfBooks(new TableOfBooks)
 {
     ui->setupUi(this);
-    ui->tableLayout->addWidget(tableBooks);
+    ui->tableLayout->addWidget(tableOfBooks);
 
-    initButtons();
+    initTimer();
+    initConnect();
 
     FileInput fi;
     fi.load(R"(D:\Documents\Projects\HomeLibrary\txt\categories.txt)");
@@ -20,11 +21,20 @@ Application::~Application()
     delete ui;
 }
 
-void Application::initButtons()
+void Application::initTimer()
 {
+    timer_.setInterval(1000);
+    timer_.start();
+}
+
+void Application::initConnect()
+{
+    connect(&timer_, &QTimer::timeout, this, &Application::updateButtonsEnabled);
     connect(ui->actionClose, &QAction::triggered, this, &Application::close);
     connect(ui->actionDictionaries, &QAction::triggered, this, &Application::openDictionaries);
-    connect(ui->actionAdd, &QAction::triggered, this, &Application::openBookEdition);
+    connect(ui->actionAdd, &QAction::triggered, this, &Application::openBookEditor);
+    connect(ui->actionEdit, &QAction::triggered, this, &Application::editBook);
+    connect(ui->actionRemove, &QAction::triggered, this, &Application::removeBook);
 }
 
 // Slots
@@ -36,17 +46,49 @@ void Application::openDictionaries()
     dictionaries->exec();
 }
 
-void Application::openBookEdition()
+void Application::makeCopy()
 {
-    BookSettings* bookSettings = new BookSettings;
+    Book bookCopy = BooksCollection::getBook(tableOfBooks->selected());
 
-    bookSettings->setModal(true);
+    tableOfBooks->addBook(bookCopy);
+    BooksCollection::addBook(bookCopy);
+}
 
-    if(bookSettings->exec() == QDialog::Accepted)
+void Application::openBookEditor()
+{
+    BookEditor* bookEditor = new BookEditor;
+
+    if(bookEditor->exec() == QDialog::Accepted)
     {
-        BookCollection::addBook(bookSettings->book());
-        tableBooks->addBook(bookSettings->book());
+        tableOfBooks->addBook(bookEditor->book());
+
+        BooksCollection::addBook(bookEditor->book());
     }
+}
 
+void Application::editBook()
+{
+    Book book = BooksCollection::getBook(tableOfBooks->selected());
 
+    BookEditor* bookEditor = new BookEditor(book);
+
+    if(bookEditor->exec() == QDialog::Accepted)
+    {
+        tableOfBooks->updateBook(bookEditor->book());
+        BooksCollection::updateBook(bookEditor->book(), tableOfBooks->selected());
+    }
+}
+
+void Application::removeBook()
+{
+    tableOfBooks->removeBook();
+}
+
+void Application::updateButtonsEnabled()
+{
+    bool enabled = ( tableOfBooks->isSelected() ? true : false );
+
+    ui->actionMakeCopy->setEnabled(enabled);
+    ui->actionRemove->setEnabled(enabled);
+    ui->actionEdit->setEnabled(enabled);
 }

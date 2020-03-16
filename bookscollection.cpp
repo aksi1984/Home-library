@@ -1,18 +1,23 @@
-#include "bookcollection.hpp"
+#include "bookscollection.hpp"
 
-QVector<Book> BookCollection::books_;
+QVector<Book> BooksCollection::books_;
 
-Book BookCollection::getBook(int index) noexcept
+Book BooksCollection::getBook(int index) noexcept
 {
     return books_[index];
 }
 
-void BookCollection::addBook(const Book &book)
+void BooksCollection::addBook(const Book &book)
 {
     books_.push_back(book);
 }
 
-void BookCollection::removeBook(int index)
+void BooksCollection::updateBook(const Book &book, int index)
+{
+    books_[index] = book;
+}
+
+void BooksCollection::removeBook(int index)
 {
     books_.remove(index);
 }

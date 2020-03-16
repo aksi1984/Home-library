@@ -1,3 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
 <ui version="4.0">
  <class>BookEditor</class>
  <widget class="QDialog" name="BookEditor">
@@ -5,13 +6,839 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>400</width>
-    <height>300</height>
+    <width>857</width>
+    <height>619</height>
    </rect>
   </property>
   <property name="windowTitle">
-   <string>Dialog</string>
+   <string>Home library</string>
   </property>
+  <layout class="QVBoxLayout" name="verticalLayout_17">
+   <item>
+    <layout class="QHBoxLayout" name="horizontalLayout_2">
+     <item>
+      <widget class="QTabWidget" name="tabWidget">
+       <property name="currentIndex">
+        <number>0</number>
+       </property>
+       <widget class="QWidget" name="tab">
+        <attribute name="title">
+         <string>General</string>
+        </attribute>
+        <layout class="QVBoxLayout" name="verticalLayout_14">
+         <item>
+          <layout class="QVBoxLayout" name="verticalLayout_2">
+           <item>
+            <layout class="QFormLayout" name="topLayout_1">
+             <item row="0" column="0">
+              <widget class="QLabel" name="titleLabel">
+               <property name="text">
+                <string>Title</string>
+               </property>
+              </widget>
+             </item>
+             <item row="0" column="1">
+              <widget class="QLineEdit" name="titleLine"/>
+             </item>
+             <item row="1" column="0">
+              <widget class="QLabel" name="origTitleLabel">
+               <property name="text">
+                <string>Original title</string>
+               </property>
+              </widget>
+             </item>
+             <item row="1" column="1">
+              <widget class="QLineEdit" name="origTitleLine"/>
+             </item>
+             <item row="2" column="0">
+              <widget class="QLabel" name="authorLabel">
+               <property name="text">
+                <string>Author</string>
+               </property>
+              </widget>
+             </item>
+             <item row="2" column="1">
+              <widget class="QLineEdit" name="authorLine"/>
+             </item>
+             <item row="3" column="0">
+              <widget class="QLabel" name="editedByLabel">
+               <property name="text">
+                <string>Edited by</string>
+               </property>
+              </widget>
+             </item>
+             <item row="3" column="1">
+              <widget class="QLineEdit" name="editedByLine"/>
+             </item>
+             <item row="4" column="0">
+              <widget class="QLabel" name="categoryLabel">
+               <property name="text">
+                <string>Category</string>
+               </property>
+              </widget>
+             </item>
+             <item row="4" column="1">
+              <layout class="QHBoxLayout" name="categoryLayout">
+               <item>
+                <widget class="QLineEdit" name="categoryLine"/>
+               </item>
+               <item>
+                <widget class="QPushButton" name="categoryButton">
+                 <property name="text">
+                  <string>...</string>
+                 </property>
+                </widget>
+               </item>
+              </layout>
+             </item>
+             <item row="5" column="0">
+              <widget class="QLabel" name="subcategoryLabel">
+               <property name="text">
+                <string>Subcategory</string>
+               </property>
+              </widget>
+             </item>
+             <item row="5" column="1">
+              <widget class="QLineEdit" name="subcategoryLine"/>
+             </item>
+             <item row="6" column="0">
+              <widget class="QLabel" name="publisherLabel">
+               <property name="text">
+                <string>Publisher</string>
+               </property>
+              </widget>
+             </item>
+             <item row="6" column="1">
+              <widget class="QLineEdit" name="publisherLine"/>
+             </item>
+             <item row="7" column="0">
+              <widget class="QLabel" name="placeOfPublLabel">
+               <property name="text">
+                <string>Place of publication</string>
+               </property>
+              </widget>
+             </item>
+             <item row="7" column="1">
+              <widget class="QLineEdit" name="placeOfPublLine"/>
+             </item>
+             <item row="8" column="0">
+              <widget class="QLabel" name="printingHouseLabel">
+               <property name="text">
+                <string>Printing house</string>
+               </property>
+              </widget>
+             </item>
+             <item row="8" column="1">
+              <widget class="QLineEdit" name="printingHouseLine"/>
+             </item>
+             <item row="9" column="0">
+              <widget class="QLabel" name="languageLabel">
+               <property name="text">
+                <string>Language</string>
+               </property>
+              </widget>
+             </item>
+             <item row="9" column="1">
+              <layout class="QHBoxLayout" name="IDSLayout">
+               <item>
+                <widget class="QLineEdit" name="languageLine"/>
+               </item>
+               <item>
+                <layout class="QHBoxLayout" name="ISBNLayout">
+                 <item>
+                  <widget class="QLabel" name="ISBNLabel">
+                   <property name="text">
+                    <string>ISBN</string>
+                   </property>
+                  </widget>
+                 </item>
+                 <item>
+                  <widget class="QLineEdit" name="ISBNLine"/>
+                 </item>
+                </layout>
+               </item>
+               <item>
+                <layout class="QFormLayout" name="IDLayout">
+                 <item row="0" column="0">
+                  <widget class="QLabel" name="IDLAbel">
+                   <property name="text">
+                    <string>ID</string>
+                   </property>
+                  </widget>
+                 </item>
+                 <item row="0" column="1">
+                  <widget class="QLineEdit" name="IDLine"/>
+                 </item>
+                </layout>
+               </item>
+              </layout>
+             </item>
+             <item row="10" column="0">
+              <widget class="QLabel" name="publicationDateLabel">
+               <property name="text">
+                <string>Publication date</string>
+               </property>
+              </widget>
+             </item>
+             <item row="10" column="1">
+              <layout class="QHBoxLayout" name="numbersLayout">
+               <item>
+                <widget class="QSpinBox" name="publicationDateSpin"/>
+               </item>
+               <item>
+                <layout class="QFormLayout" name="formLayout_2">
+                 <item row="0" column="0">
+                  <widget class="QLabel" name="editionLabel">
+                   <property name="text">
+                    <string>Edition</string>
+                   </property>
+                  </widget>
+                 </item>
+                 <item row="0" column="1">
+                  <widget class="QSpinBox" name="editionSpin"/>
+                 </item>
+                </layout>
+               </item>
+               <item>
+                <layout class="QFormLayout" name="formLayout">
+                 <item row="0" column="0">
+                  <widget class="QLabel" name="numberOfPagesLabel">
+                   <property name="text">
+                    <string>Number of pages</string>
+                   </property>
+                  </widget>
+                 </item>
+                 <item row="0" column="1">
+                  <widget class="QSpinBox" name="numberOfPagesSpin">
+                   <property name="maximum">
+                    <number>10000</number>
+                   </property>
+                  </widget>
+                 </item>
+                </layout>
+               </item>
+               <item>
+                <layout class="QFormLayout" name="tomeLayout">
+                 <item row="0" column="0">
+                  <widget class="QLabel" name="tomeLabel">
+                   <property name="text">
+                    <string>Tome</string>
+                   </property>
+                  </widget>
+                 </item>
+                 <item row="0" column="1">
+                  <widget class="QSpinBox" name="tomeSpin"/>
+                 </item>
+                </layout>
+               </item>
+              </layout>
+             </item>
+            </layout>
+           </item>
+           <item>
+            <spacer name="verticalSpacer">
+             <property name="orientation">
+              <enum>Qt::Vertical</enum>
+             </property>
+             <property name="sizeType">
+              <enum>QSizePolicy::Maximum</enum>
+             </property>
+             <property name="sizeHint" stdset="0">
+              <size>
+               <width>10</width>
+               <height>90</height>
+              </size>
+             </property>
+            </spacer>
+           </item>
+           <item>
+            <layout class="QHBoxLayout" name="middleLayout_1">
+             <item>
+              <widget class="QGroupBox" name="bookRatingGroup">
+               <property name="title">
+                <string>Book rating</string>
+               </property>
+               <layout class="QVBoxLayout" name="verticalLayout">
+                <item>
+                 <layout class="QVBoxLayout" name="ratingLayout">
+                  <item>
+                   <layout class="QFormLayout" name="pointsLayout">
+                    <item row="0" column="0">
+                     <widget class="QLabel" name="pointsLabel">
+                      <property name="text">
+                       <string>Points</string>
+                      </property>
+                     </widget>
+                    </item>
+                    <item row="0" column="1">
+                     <widget class="QSpinBox" name="pointsSpin">
+                      <property name="maximum">
+                       <number>10</number>
+                      </property>
+                     </widget>
+                    </item>
+                   </layout>
+                  </item>
+                  <item>
+                   <widget class="QCheckBox" name="readCheckBox">
+                    <property name="text">
+                     <string>Read</string>
+                    </property>
+                   </widget>
+                  </item>
+                  <item>
+                   <widget class="QCheckBox" name="iRecommentCheck">
+                    <property name="text">
+                     <string>I recommend</string>
+                    </property>
+                   </widget>
+                  </item>
+                 </layout>
+                </item>
+               </layout>
+              </widget>
+             </item>
+             <item>
+              <widget class="QGroupBox" name="storageLocationGroup">
+               <property name="title">
+                <string>Storage location</string>
+               </property>
+               <layout class="QVBoxLayout" name="storageMainLayout">
+                <item>
+                 <layout class="QFormLayout" name="storagePlaceLayout">
+                  <item row="0" column="0">
+                   <widget class="QLabel" name="placeLabel">
+                    <property name="text">
+                     <string>Place</string>
+                    </property>
+                   </widget>
+                  </item>
+                  <item row="0" column="1">
+                   <widget class="QLineEdit" name="placeLine"/>
+                  </item>
+                 </layout>
+                </item>
+                <item>
+                 <layout class="QFormLayout" name="placeRoomLayout">
+                  <item row="0" column="0">
+                   <widget class="QLabel" name="roomLabel">
+                    <property name="text">
+                     <string>Room</string>
+                    </property>
+                   </widget>
+                  </item>
+                  <item row="0" column="1">
+                   <widget class="QLineEdit" name="roomLine"/>
+                  </item>
+                 </layout>
+                </item>
+                <item>
+                 <layout class="QHBoxLayout" name="storageBottomLayout">
+                  <item>
+                   <layout class="QFormLayout" name="storageBookstandLayout">
+                    <item row="0" column="0">
+                     <widget class="QLabel" name="bookstandLabel">
+                      <property name="text">
+                       <string>Bookstand</string>
+                      </property>
+                     </widget>
+                    </item>
+                    <item row="0" column="1">
+                     <widget class="QSpinBox" name="storageBookstandSpin"/>
+                    </item>
+                   </layout>
+                  </item>
+                  <item>
+                   <layout class="QFormLayout" name="storageShelfLayout">
+                    <item row="0" column="0">
+                     <widget class="QLabel" name="shelfLabel">
+                      <property name="text">
+                       <string>Shelf</string>
+                      </property>
+                     </widget>
+                    </item>
+                    <item row="0" column="1">
+                     <widget class="QSpinBox" name="storageShelfSpin"/>
+                    </item>
+                   </layout>
+                  </item>
+                 </layout>
+                </item>
+               </layout>
+              </widget>
+             </item>
+             <item>
+              <widget class="QGroupBox" name="purchasePlaceGroup">
+               <property name="title">
+                <string>Purchase</string>
+               </property>
+               <layout class="QVBoxLayout" name="purchaseMainLayout">
+                <item>
+                 <layout class="QHBoxLayout" name="purchasePlaceLayout">
+                  <item>
+                   <widget class="QLabel" name="purchasePlace">
+                    <property name="text">
+                     <string>Place</string>
+                    </property>
+                   </widget>
+                  </item>
+                  <item>
+                   <widget class="QLineEdit" name="purchasePlaceLine"/>
+                  </item>
+                 </layout>
+                </item>
+                <item>
+                 <layout class="QHBoxLayout" name="purchaseDateLayout">
+                  <item>
+                   <widget class="QLabel" name="purchaseDate_2">
+                    <property name="text">
+                     <string>Date</string>
+                    </property>
+                   </widget>
+                  </item>
+                  <item>
+                   <widget class="QDateEdit" name="purchaseDate"/>
+                  </item>
+                 </layout>
+                </item>
+                <item>
+                 <layout class="QHBoxLayout" name="purchaseBottomLayout">
+                  <item>
+                   <layout class="QHBoxLayout" name="purchasePriceLayout">
+                    <item>
+                     <widget class="QLabel" name="purchasePriceSpin_2">
+                      <property name="text">
+                       <string>Price</string>
+                      </property>
+                     </widget>
+                    </item>
+                    <item>
+                     <widget class="QDoubleSpinBox" name="purchasePriceSpin"/>
+                    </item>
+                   </layout>
+                  </item>
+                  <item>
+                   <layout class="QHBoxLayout" name="purchaseValuationLayout">
+                    <item>
+                     <widget class="QLabel" name="purchaseValuationLabel">
+                      <property name="text">
+                       <string>Valuation</string>
+                      </property>
+                     </widget>
+                    </item>
+                    <item>
+                     <widget class="QDoubleSpinBox" name="purchaseValuationSpin"/>
+                    </item>
+                   </layout>
+                  </item>
+                 </layout>
+                </item>
+               </layout>
+              </widget>
+             </item>
+            </layout>
+           </item>
+          </layout>
+         </item>
+        </layout>
+       </widget>
+       <widget class="QWidget" name="tab_2">
+        <attribute name="title">
+         <string>Other</string>
+        </attribute>
+        <layout class="QVBoxLayout" name="verticalLayout_15">
+         <item>
+          <layout class="QVBoxLayout" name="otherMainLayout">
+           <item>
+            <layout class="QHBoxLayout" name="layout_1">
+             <item>
+              <widget class="QGroupBox" name="seriesGroup">
+               <property name="title">
+                <string>Series</string>
+               </property>
+               <layout class="QVBoxLayout" name="verticalLayout_3">
+                <item>
+                 <layout class="QFormLayout" name="seriesMainLayout">
+                  <item row="0" column="0">
+                   <widget class="QLabel" name="nameLabel">
+                    <property name="text">
+                     <string>Name</string>
+                    </property>
+                   </widget>
+                  </item>
+                  <item row="0" column="1">
+                   <widget class="QLineEdit" name="nameLine"/>
+                  </item>
+                  <item row="1" column="0">
+                   <widget class="QLabel" name="PartLabel">
+                    <property name="text">
+                     <string>Part</string>
+                    </property>
+                   </widget>
+                  </item>
+                  <item row="1" column="1">
+                   <layout class="QHBoxLayout" name="partLayout">
+                    <item>
+                     <widget class="QSpinBox" name="partSpin"/>
+                    </item>
+                    <item>
+                     <layout class="QFormLayout" name="numberLayout">
+                      <item row="0" column="0">
+                       <widget class="QLabel" name="numberLabel">
+                        <property name="text">
+                         <string>Number</string>
+                        </property>
+                       </widget>
+                      </item>
+                      <item row="0" column="1">
+                       <widget class="QSpinBox" name="numberSpin"/>
+                      </item>
+                     </layout>
+                    </item>
+                   </layout>
+                  </item>
+                 </layout>
+                </item>
+               </layout>
+              </widget>
+             </item>
+             <item>
+              <widget class="QGroupBox" name="translationGroup">
+               <property name="title">
+                <string>Translation</string>
+               </property>
+               <layout class="QVBoxLayout" name="verticalLayout_4">
+                <item>
+                 <layout class="QFormLayout" name="translationMainLayout">
+                  <item row="0" column="0">
+                   <widget class="QLabel" name="fromLanguageLabel">
+                    <property name="text">
+                     <string>From language</string>
+                    </property>
+                   </widget>
+                  </item>
+                  <item row="0" column="1">
+                   <widget class="QLineEdit" name="fromLanguageLine"/>
+                  </item>
+                  <item row="1" column="0">
+                   <widget class="QLabel" name="translationAuthor">
+                    <property name="text">
+                     <string>Author</string>
+                    </property>
+                   </widget>
+                  </item>
+                  <item row="1" column="1">
+                   <widget class="QLineEdit" name="translationAuthorLine"/>
+                  </item>
+                 </layout>
+                </item>
+               </layout>
+              </widget>
+             </item>
+            </layout>
+           </item>
+           <item>
+            <layout class="QHBoxLayout" name="layout_2">
+             <item>
+              <widget class="QGroupBox" name="groupBox">
+               <property name="title">
+                <string>Loaned</string>
+               </property>
+               <layout class="QVBoxLayout" name="verticalLayout_5">
+                <item>
+                 <layout class="QFormLayout" name="loanedMainLayout">
+                  <item row="0" column="0">
+                   <widget class="QLabel" name="loanedDateLabel">
+                    <property name="text">
+                     <string>Date</string>
+                    </property>
+                   </widget>
+                  </item>
+                  <item row="0" column="1">
+                   <widget class="QDateEdit" name="loanedDateDate"/>
+                  </item>
+                  <item row="1" column="0">
+                   <widget class="QLabel" name="loanedToWhomLabel">
+                    <property name="text">
+                     <string>To whom</string>
+                    </property>
+                   </widget>
+                  </item>
+                  <item row="1" column="1">
+                   <widget class="QLineEdit" name="loanedToWhomLine"/>
+                  </item>
+                 </layout>
+                </item>
+               </layout>
+              </widget>
+             </item>
+             <item>
+              <widget class="QGroupBox" name="lentGroup">
+               <property name="title">
+                <string>Lent</string>
+               </property>
+               <layout class="QVBoxLayout" name="verticalLayout_6">
+                <item>
+                 <layout class="QFormLayout" name="lentMainLayout">
+                  <item row="0" column="0">
+                   <widget class="QLabel" name="lentDateLabel">
+                    <property name="text">
+                     <string>Date</string>
+                    </property>
+                   </widget>
+                  </item>
+                  <item row="0" column="1">
+                   <widget class="QDateEdit" name="lentDateDate"/>
+                  </item>
+                  <item row="1" column="0">
+                   <widget class="QLabel" name="lentToWhomLabel">
+                    <property name="text">
+                     <string>To whom</string>
+                    </property>
+                   </widget>
+                  </item>
+                  <item row="1" column="1">
+                   <widget class="QLineEdit" name="lentToWhomLine"/>
+                  </item>
+                 </layout>
+                </item>
+               </layout>
+              </widget>
+             </item>
+            </layout>
+           </item>
+           <item>
+            <layout class="QHBoxLayout" name="layout_3">
+             <item>
+              <widget class="QGroupBox" name="saleGroup">
+               <property name="title">
+                <string>Sale</string>
+               </property>
+               <layout class="QVBoxLayout" name="verticalLayout_7">
+                <item>
+                 <layout class="QFormLayout" name="saleMainLayout">
+                  <item row="0" column="0">
+                   <widget class="QLabel" name="saleDateLabel">
+                    <property name="text">
+                     <string>Date</string>
+                    </property>
+                   </widget>
+                  </item>
+                  <item row="0" column="1">
+                   <widget class="QDateEdit" name="saleDateDate"/>
+                  </item>
+                  <item row="1" column="0">
+                   <widget class="QLabel" name="salePlaceLabel">
+                    <property name="text">
+                     <string>Place</string>
+                    </property>
+                   </widget>
+                  </item>
+                  <item row="1" column="1">
+                   <widget class="QLineEdit" name="salePlaceLine"/>
+                  </item>
+                  <item row="2" column="0">
+                   <widget class="QLabel" name="salePriceLabel">
+                    <property name="text">
+                     <string>TextLabel</string>
+                    </property>
+                   </widget>
+                  </item>
+                  <item row="2" column="1">
+                   <widget class="QDoubleSpinBox" name="salePriceSpin"/>
+                  </item>
+                 </layout>
+                </item>
+               </layout>
+              </widget>
+             </item>
+             <item>
+              <widget class="QGroupBox" name="statusGroup">
+               <property name="title">
+                <string>Status</string>
+               </property>
+               <layout class="QVBoxLayout" name="verticalLayout_8">
+                <item>
+                 <widget class="QCheckBox" name="damagedCheck">
+                  <property name="text">
+                   <string>Damaged</string>
+                  </property>
+                 </widget>
+                </item>
+                <item>
+                 <widget class="QCheckBox" name="giftCheck">
+                  <property name="text">
+                   <string>Gift</string>
+                  </property>
+                 </widget>
+                </item>
+                <item>
+                 <widget class="QCheckBox" name="usedCheck">
+                  <property name="text">
+                   <string>Used</string>
+                  </property>
+                 </widget>
+                </item>
+               </layout>
+              </widget>
+             </item>
+            </layout>
+           </item>
+           <item>
+            <widget class="QGroupBox" name="sourceOfOriginGroup">
+             <property name="title">
+              <string>Source of origin</string>
+             </property>
+             <layout class="QVBoxLayout" name="verticalLayout_9">
+              <item>
+               <layout class="QFormLayout" name="sourceOfOriginLayout">
+                <item row="0" column="0">
+                 <widget class="QLabel" name="sourceOfOriginCategoryLabel">
+                  <property name="text">
+                   <string>Category</string>
+                  </property>
+                 </widget>
+                </item>
+                <item row="0" column="1">
+                 <widget class="QLineEdit" name="sourceOfOriginCategoryLine"/>
+                </item>
+                <item row="1" column="0">
+                 <widget class="QLabel" name="sourceOfOriginDescrLabel">
+                  <property name="text">
+                   <string>Description</string>
+                  </property>
+                 </widget>
+                </item>
+                <item row="1" column="1">
+                 <widget class="QLineEdit" name="sourceOfOriginDescrLine"/>
+                </item>
+               </layout>
+              </item>
+             </layout>
+            </widget>
+           </item>
+           <item>
+            <widget class="QGroupBox" name="additivesGroup">
+             <property name="title">
+              <string>Additives</string>
+             </property>
+             <layout class="QVBoxLayout" name="verticalLayout_10">
+              <item>
+               <layout class="QFormLayout" name="attachmentsLayout">
+                <item row="0" column="0">
+                 <widget class="QLabel" name="attachmentsLabel">
+                  <property name="text">
+                   <string>Attachments</string>
+                  </property>
+                 </widget>
+                </item>
+                <item row="0" column="1">
+                 <widget class="QLineEdit" name="attachmentsLine"/>
+                </item>
+               </layout>
+              </item>
+             </layout>
+            </widget>
+           </item>
+          </layout>
+         </item>
+        </layout>
+       </widget>
+       <widget class="QWidget" name="tab_3">
+        <attribute name="title">
+         <string>Description</string>
+        </attribute>
+        <layout class="QVBoxLayout" name="verticalLayout_13">
+         <item>
+          <widget class="QGroupBox" name="commentsGroup">
+           <property name="title">
+            <string>Comments</string>
+           </property>
+           <layout class="QVBoxLayout" name="verticalLayout_11">
+            <item>
+             <widget class="QTextEdit" name="commentsTextEdit"/>
+            </item>
+           </layout>
+          </widget>
+         </item>
+         <item>
+          <widget class="QGroupBox" name="reviewGroup">
+           <property name="title">
+            <string>Review</string>
+           </property>
+           <layout class="QVBoxLayout" name="verticalLayout_12">
+            <item>
+             <widget class="QTextEdit" name="reviewTextEdit"/>
+            </item>
+           </layout>
+          </widget>
+         </item>
+        </layout>
+       </widget>
+      </widget>
+     </item>
+     <item>
+      <layout class="QVBoxLayout" name="verticalLayout_16">
+       <item>
+        <layout class="QVBoxLayout" name="imageViewLayout"/>
+       </item>
+      </layout>
+     </item>
+    </layout>
+   </item>
+   <item>
+    <widget class="Line" name="line">
+     <property name="orientation">
+      <enum>Qt::Horizontal</enum>
+     </property>
+    </widget>
+   </item>
+   <item>
+    <layout class="QHBoxLayout" name="bottomLayout">
+     <item>
+      <spacer name="horizontalSpacer">
+       <property name="orientation">
+        <enum>Qt::Horizontal</enum>
+       </property>
+       <property name="sizeHint" stdset="0">
+        <size>
+         <width>40</width>
+         <height>20</height>
+        </size>
+       </property>
+      </spacer>
+     </item>
+     <item>
+      <widget class="QPushButton" name="printButton">
+       <property name="text">
+        <string>Print</string>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QPushButton" name="buttonSave">
+       <property name="text">
+        <string>Save</string>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QPushButton" name="buttonOK">
+       <property name="text">
+        <string>OK</string>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QPushButton" name="buttonCancel">
+       <property name="text">
+        <string>Cancel</string>
+       </property>
+      </widget>
+     </item>
+    </layout>
+   </item>
+  </layout>
  </widget>
  <resources/>
  <connections/>

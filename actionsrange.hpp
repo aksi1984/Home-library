@@ -1,0 +1,4 @@
+#ifndef ACTIONSRANGE_H
+#define ACTIONSRANGE_H
+
+#endif // ACTIONSRANGE_H

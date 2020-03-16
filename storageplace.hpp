@@ -3,26 +3,27 @@
 
 #include <QString>
 
-class StoragePlace
+class StorageLocation
 {
 public:
-    StoragePlace();
+    StorageLocation();
+    StorageLocation(const QString& reqPlace, const QString& reqRoom, int reqBookst, int reqShelf);
 
     void setPlaceName(const QString& text);
     void setRoom(const QString& text);
-    void setBookstand(unsigned value);
-    void setShelf(unsigned value);
+    void setBookstand(int value);
+    void setShelf(int value);
 
     QString placeName() const noexcept;
     QString room() const noexcept;
-    unsigned bookstand() const noexcept;
-    unsigned shelf() const noexcept;
+    int bookstand() const noexcept;
+    int shelf() const noexcept;
 
 private:
     QString placeName_;
     QString room_;
-    unsigned bookstand_;
-    unsigned shelf_;
+    int bookstand_;
+    int shelf_;
 };
 
 #endif // STORAGEPLACE_HPP

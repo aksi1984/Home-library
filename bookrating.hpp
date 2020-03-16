@@ -6,8 +6,9 @@ class BookRating
 {
 public:
     BookRating();
+    BookRating(int reqPoints, bool reqIsRead, bool reqIRecomm);
 
-    void setPoints(unsigned value);
+    void setPoints(int value);
     void setRead(bool cond);
     void setRecommended(bool cond);
 

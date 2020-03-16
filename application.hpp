@@ -2,11 +2,13 @@
 #define APPLICATION_H
 
 #include <QMainWindow>
+#include <QTimer>
 
-#include "tablebooks.hpp"
+#include "tableofbooks.hpp"
+#include "bookscollection.hpp"
+#include "bookeditor.hpp"
 #include "dictionaries.hpp"
 #include "fileinput.hpp"
-#include "booksettings.hpp"
 
 QT_BEGIN_NAMESPACE
 namespace Ui { class Application; }
@@ -22,13 +24,19 @@ public:
 
 private slots:
     void openDictionaries();
-    void openBookEdition();
+    void makeCopy();
+    void openBookEditor();
+    void editBook();
+    void removeBook();
+    void updateButtonsEnabled();
 
 private:
     Ui::Application *ui;
 
-    void initButtons();
+    void initTimer();
+    void initConnect();
 
-    TableBooks* tableBooks;
+    QTimer timer_;
+    TableOfBooks* tableOfBooks;
 };
 #endif // APPLICATION_H

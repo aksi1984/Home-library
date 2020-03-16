@@ -17,45 +17,72 @@ DEFINES += QT_DEPRECATED_WARNINGS
 
 SOURCES += \
     book.cpp \
-    bookcollection.cpp \
+    bookadditives.cpp \
+    bookbasic.cpp \
+    bookbasicnumbers.cpp \
+    bookdescriprion.cpp \
+    bookeditor.cpp \
+    bookimage.cpp \
     bookpurchase.cpp \
     bookrating.cpp \
-    booksettings.cpp \
+    bookrentalstatus.cpp \
+    booksale.cpp \
+    bookscollection.cpp \
+    bookseries.cpp \
+    booksourceoforigin.cpp \
+    bookstatus.cpp \
+    booktranslation.cpp \
     categories.cpp \
     categoryselection.cpp \
     configuration.cpp \
     dictionaries.cpp \
     fileinput.cpp \
     general.cpp \
+    imageview.cpp \
     main.cpp \
     application.cpp \
     newcategorydialog.cpp \
+    objectsnames.cpp \
     storageplace.cpp \
-    tablebooks.cpp
+    tableofbooks.cpp
 
 HEADERS += \
     application.h \
     book.hpp \
-    bookcollection.hpp \
+    bookadditives.hpp \
+    bookbasic.hpp \
+    bookbasicnumbers.hpp \
+    bookdescriprion.hpp \
+    bookeditor.hpp \
+    bookimage.hpp \
     bookpurchase.hpp \
     bookrating.hpp \
-    booksettings.hpp \
+    bookrentalstatus.hpp \
+    booksale.hpp \
+    bookscollection.hpp \
+    bookseries.hpp \
+    booksourceoforigin.hpp \
+    bookstatus.hpp \
+    booktranslation.hpp \
     categories.hpp \
     categoryselection.hpp \
     configuration.hpp \
     dictionaries.hpp \
     fileinput.hpp \
     general.hpp \
+    imageview.hpp \
     newcategorydialog.hpp \
+    objectsnames.hpp \
     storageplace.hpp \
-    tablebooks.hpp
+    tableofbooks.hpp
 
 FORMS += \
     application.ui \
-    booksettings.ui \
+    bookeditor.ui \
     categoryselection.ui \
     dialog.ui \
     dictionaries.ui \
+    imageview.ui \
     newcategorydialog.ui \
     tablebooks.ui
 

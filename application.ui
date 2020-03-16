@@ -6,7 +6,7 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>1025</width>
+    <width>1350</width>
     <height>600</height>
    </rect>
   </property>
@@ -14,87 +14,7 @@
    <string>Home library</string>
   </property>
   <widget class="QWidget" name="centralwidget">
-   <layout class="QVBoxLayout" name="verticalLayout_3">
-    <item>
-     <layout class="QHBoxLayout" name="optionsLayout">
-      <item>
-       <widget class="QLabel" name="filterLabel">
-        <property name="text">
-         <string>Filter:</string>
-        </property>
-       </widget>
-      </item>
-      <item>
-       <widget class="QComboBox" name="filterComboBox">
-        <item>
-         <property name="text">
-          <string>ISBN</string>
-         </property>
-        </item>
-        <item>
-         <property name="text">
-          <string>Title</string>
-         </property>
-        </item>
-        <item>
-         <property name="text">
-          <string>Author</string>
-         </property>
-        </item>
-        <item>
-         <property name="text">
-          <string>Category</string>
-         </property>
-        </item>
-        <item>
-         <property name="text">
-          <string>Language</string>
-         </property>
-        </item>
-        <item>
-         <property name="text">
-          <string>Publishing</string>
-         </property>
-        </item>
-        <item>
-         <property name="text">
-          <string>Publishing date</string>
-         </property>
-        </item>
-        <item>
-         <property name="text">
-          <string>Series</string>
-         </property>
-        </item>
-        <item>
-         <property name="text">
-          <string>Loaned</string>
-         </property>
-        </item>
-       </widget>
-      </item>
-      <item>
-       <widget class="QPushButton" name="rentPushButton">
-        <property name="text">
-         <string>Rent</string>
-        </property>
-       </widget>
-      </item>
-      <item>
-       <spacer name="horizontalSpacer">
-        <property name="orientation">
-         <enum>Qt::Horizontal</enum>
-        </property>
-        <property name="sizeHint" stdset="0">
-         <size>
-          <width>40</width>
-          <height>20</height>
-         </size>
-        </property>
-       </spacer>
-      </item>
-     </layout>
-    </item>
+   <layout class="QVBoxLayout" name="verticalLayout">
     <item>
      <layout class="QVBoxLayout" name="tableLayout"/>
     </item>
@@ -105,7 +25,7 @@
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>1025</width>
+     <width>1350</width>
      <height>22</height>
     </rect>
    </property>
@@ -126,9 +46,9 @@
      <string>Books</string>
     </property>
     <addaction name="actionAdd"/>
-    <addaction name="actionMake_copy"/>
+    <addaction name="actionMakeCopy"/>
+    <addaction name="actionEdit"/>
     <addaction name="actionRemove"/>
-    <addaction name="actionRemove_2"/>
    </widget>
    <widget class="QMenu" name="menuSettings">
     <property name="title">
@@ -171,17 +91,17 @@
     <string>Add</string>
    </property>
   </action>
-  <action name="actionMake_copy">
+  <action name="actionMakeCopy">
    <property name="text">
     <string>Make copy</string>
    </property>
   </action>
-  <action name="actionRemove">
+  <action name="actionEdit">
    <property name="text">
     <string>Edit</string>
    </property>
   </action>
-  <action name="actionRemove_2">
+  <action name="actionRemove">
    <property name="text">
     <string>Remove</string>
    </property>
