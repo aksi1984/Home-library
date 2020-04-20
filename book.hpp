@@ -1,87 +1,82 @@
 #ifndef BOOK_HPP
 #define BOOK_HPP
 
-#include "bookbasic.hpp"
-#include "bookbasicnumbers.hpp"
-#include "bookrating.hpp"
-#include "storageplace.hpp"
-#include "bookpurchase.hpp"
-#include "bookseries.hpp"
-#include "booktranslation.hpp"
-#include "bookrentalstatus.hpp"
-#include "bookstatus.hpp"
-#include "booksourceoforigin.hpp"
-#include "booksale.hpp"
-#include "bookadditives.hpp"
-#include "bookdescriprion.hpp"
 #include "bookimage.hpp"
+#include "bookdetails.hpp"
 
 class Book
 {
 public:
     Book();
 
-    void setBasic(const BookBasic& bookBasic);
-    BookBasic basic() const noexcept;
+    void setBasic(const BookDetails& data);
+    BookDetails& basic();
+    BookDetails basic() const noexcept;
 
-    void setBasicNumbers(const BookBasicNumbers& bookBasic);
-    BookBasicNumbers basicNumbers() const noexcept;
+    void setRatings(const BookDetails& data);
+    BookDetails& ratings();
+    BookDetails ratings() const noexcept;
 
-    void setRating(const BookRating& bookRating);
-    BookRating rating() const noexcept;
+    void setStorageLocation(const BookDetails& data);
+    BookDetails& storageLocation();
+    BookDetails storageLocation() const noexcept;
 
-    void setStorageLocation(const StorageLocation& location);
-    StorageLocation storageLocation() const noexcept;
+    void setPurchase(const BookDetails& data);
+    BookDetails& purchase();
+    BookDetails purchase() const noexcept;
 
-    void setPurchase(const BookPurchase& bookPurchase);
-    BookPurchase purchase() const noexcept;
+    void setSeries(const BookDetails& data);
+    BookDetails& series();
+    BookDetails series() const noexcept;
 
-    void setSeries(const BookSeries& bookSeries);
-    BookSeries series() const noexcept;
+    void setTranslation(const BookDetails& data);
+    BookDetails& translation();
+    BookDetails translation() const noexcept;
 
-    void setTranslation(const BookTranslation& bookTranslation);
-    BookTranslation translation() const noexcept;
+    void setLoaned(const BookDetails& data);
+    BookDetails& loaned();
+    BookDetails loaned() const noexcept;
 
-    void setLoaned(const BookRentalStatus& rentalStatus);
-    BookRentalStatus loaned() const noexcept;
+    void setLent(const BookDetails& data);
+    BookDetails& lent();
+    BookDetails lent() const noexcept;
 
-    void setLent(const BookRentalStatus& rentalStatus);
-    BookRentalStatus lent() const noexcept;
+    void setSale(const BookDetails& data);
+    BookDetails& sale();
+    BookDetails sale() const noexcept;
 
-    void setSale(const BookSale& bookSale);
-    BookSale sale() const noexcept;
+    void setStatus(const BookDetails& data);
+    BookDetails& status();
+    BookDetails status() const noexcept;
 
-    void setStatus(const BookStatus& bookStatus);
-    BookStatus status() const noexcept;
+    void setSource(const BookDetails& data);
+    BookDetails& source();
+    BookDetails source() const noexcept;
 
-    void setSourceOfOrigin(const BookSourceOfOrigin& bookSourceOfOrigin);
-    BookSourceOfOrigin sourceOfOrigin() const noexcept;
-
-    void setAdditives(const BookAdditives& bookAdditives);
-    BookAdditives additives() const noexcept;
-
-    void setDescription(const BookDescriprion& bookDesription);
-    BookDescriprion description() const noexcept;
+    void setDescription(const BookDetails& data);
+    BookDetails& description();
+    BookDetails description() const noexcept;
 
     void setImage(const BookImage& image);
     BookImage image() const noexcept;
 
 private:
-    BookBasic basic_;
-    BookBasicNumbers basicNumbers_;
-    BookRating rating_;
-    StorageLocation storageLocation_;
-    BookPurchase purchase_;
-    BookSeries series_;
-    BookTranslation translation_;
-    BookRentalStatus loaned_;
-    BookRentalStatus lent_;
-    BookSale sale_;
-    BookStatus status_;
-    BookSourceOfOrigin sourceOfOrigin_;
-    BookAdditives additives_;
-    BookDescriprion description_;
+
+    BookDetails basic_;
+    BookDetails ratings_;
+    BookDetails storageLocation_;
+    BookDetails purchase_;
+    BookDetails series_;
+    BookDetails translation_;
+    BookDetails loaned_;
+    BookDetails lent_;
+    BookDetails sale_;
+    BookDetails status_;
+    BookDetails sourceOfOrigin_;
+    BookDetails description_;
     BookImage bookImage_;
+
+    QStringList numbers_;
 };
 
 #endif // BOOK_HPP

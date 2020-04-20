@@ -15,6 +15,7 @@
 #include "shortdescription.hpp"
 #include "actionsrange.hpp"
 #include "stylesheets.hpp"
+#include "settings.hpp"
 
 QT_BEGIN_NAMESPACE
 namespace Ui { class Application; }
@@ -41,6 +42,8 @@ private slots:
 
 private:
     Ui::Application *ui;
+
+    void closeEvent(QCloseEvent* e) override;
 
     void createDockWidgets();
     void createToolBar();

@@ -7,7 +7,16 @@
 
 #include "common.hpp"
 #include "book.hpp"
+#include "settings.hpp"
 
+inline QStringList convert(const QVariantList& variants)
+{
+    QStringList data;
+
+    for(auto x : variants) data.push_back(x.toString());
+
+    return data;
+}
 
 class TableEditor
 {
@@ -24,6 +33,7 @@ public:
     void setPattern(const QPair<QString, int>& data);
     void setPattern(const QString& pattern, int column);
     bool isEmpty() const noexcept;
+    void load();
 
 private:
     void resizeRows();

@@ -25,6 +25,8 @@ QString getString(Iterator begin, Iterator end)
     return str;
 }
 
+/////////////////////////////////////////////////////
+
 class ObjectsNames
 {    
 public:

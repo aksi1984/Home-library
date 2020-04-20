@@ -460,3 +460,9 @@ QMessageBox
 	background-color: rgba(37,33,33,90%);
 	color: #9c9c9c;
 }
+
+PdfSettings
+{
+	background-color: rgba(0,0,0,70%);
+	color: #9c9c9c;
+}

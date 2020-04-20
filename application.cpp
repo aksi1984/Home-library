@@ -18,6 +18,11 @@ Application::Application(QWidget *parent)
     createToolBar();
     initTimer();
     initConnect();
+
+
+    Settings::loadBooks();
+    table_->tableEditor().load();
+    tree_->load();
 }
 
 Application::~Application()
@@ -92,7 +97,7 @@ void Application::openBookEditor()
     {
         table_->tableEditor().addBook(bookEditor->book());
         BooksCollection::addBook(bookEditor->book());
-        tree_->addRow();
+        //tree_->addRow();
     }
 }
 
@@ -134,13 +139,9 @@ void Application::updateButtonsEnabled()
     {
         int selectedBook = table_->tableEditor().selectedRow();
         Book book = BooksCollection::getBook(selectedBook);
-        QString text = book.description().review();
-        shortDecription_->setText(text);
-
-        //if(auto fileName = book.image().fileName(); fileName != std::nullopt)
-        //{
-            shortDecription_->setImage(book.image().fileName());
-        //}
+        //QString text = book.description().review();
+        //shortDecription_->setText(text);
+        //shortDecription_->setImage(book.image().fileName());
     }
 }
 
@@ -154,5 +155,13 @@ void Application::createTableContextMenu()
     auto actions = actionsInRange(5, 10, ui->toolBar->actions());
 
     table_->createContextMenu(actions);
+}
+
+void Application::closeEvent(QCloseEvent *e)
+{
+    //table_->tableEditor().remove();
+
+    Settings::saveBooks();
+    e->accept();
 }
 

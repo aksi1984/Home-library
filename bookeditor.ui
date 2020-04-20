@@ -38,7 +38,11 @@
               </widget>
              </item>
              <item row="0" column="1">
-              <widget class="QLineEdit" name="titleLine"/>
+              <widget class="QLineEdit" name="titleLine">
+               <property name="text">
+                <string>title</string>
+               </property>
+              </widget>
              </item>
              <item row="1" column="0">
               <widget class="QLabel" name="origTitleLabel">
@@ -314,7 +318,11 @@
                    </widget>
                   </item>
                   <item row="0" column="1">
-                   <widget class="QLineEdit" name="placeLine"/>
+                   <widget class="QLineEdit" name="placeLine">
+                    <property name="text">
+                     <string>place st</string>
+                    </property>
+                   </widget>
                   </item>
                  </layout>
                 </item>
@@ -328,7 +336,11 @@
                    </widget>
                   </item>
                   <item row="0" column="1">
-                   <widget class="QLineEdit" name="roomLine"/>
+                   <widget class="QLineEdit" name="roomLine">
+                    <property name="text">
+                     <string>room st</string>
+                    </property>
+                   </widget>
                   </item>
                  </layout>
                 </item>
@@ -383,7 +395,11 @@
                    </widget>
                   </item>
                   <item>
-                   <widget class="QLineEdit" name="purchasePlaceLine"/>
+                   <widget class="QLineEdit" name="purchasePlaceLine">
+                    <property name="text">
+                     <string>place p</string>
+                    </property>
+                   </widget>
                   </item>
                  </layout>
                 </item>
@@ -483,7 +499,11 @@
                    </widget>
                   </item>
                   <item row="0" column="1">
-                   <widget class="QLineEdit" name="nameLine"/>
+                   <widget class="QLineEdit" name="nameLine">
+                    <property name="text">
+                     <string>name series</string>
+                    </property>
+                   </widget>
                   </item>
                   <item row="1" column="0">
                    <widget class="QLabel" name="PartLabel">
@@ -534,7 +554,11 @@
                    </widget>
                   </item>
                   <item row="0" column="1">
-                   <widget class="QLineEdit" name="fromLanguageLine"/>
+                   <widget class="QLineEdit" name="fromLanguageLine">
+                    <property name="text">
+                     <string>lang</string>
+                    </property>
+                   </widget>
                   </item>
                   <item row="1" column="0">
                    <widget class="QLabel" name="translationAuthor">
@@ -544,7 +568,11 @@
                    </widget>
                   </item>
                   <item row="1" column="1">
-                   <widget class="QLineEdit" name="translationAuthorLine"/>
+                   <widget class="QLineEdit" name="translationAuthorLine">
+                    <property name="text">
+                     <string>author tr</string>
+                    </property>
+                   </widget>
                   </item>
                  </layout>
                 </item>
@@ -581,7 +609,11 @@
                    </widget>
                   </item>
                   <item row="1" column="1">
-                   <widget class="QLineEdit" name="loanedToWhomLine"/>
+                   <widget class="QLineEdit" name="loanedToWhomLine">
+                    <property name="text">
+                     <string>whom loaned</string>
+                    </property>
+                   </widget>
                   </item>
                  </layout>
                 </item>
@@ -614,7 +646,11 @@
                    </widget>
                   </item>
                   <item row="1" column="1">
-                   <widget class="QLineEdit" name="lentToWhomLine"/>
+                   <widget class="QLineEdit" name="lentToWhomLine">
+                    <property name="text">
+                     <string>whom lent</string>
+                    </property>
+                   </widget>
                   </item>
                  </layout>
                 </item>
@@ -651,7 +687,11 @@
                    </widget>
                   </item>
                   <item row="1" column="1">
-                   <widget class="QLineEdit" name="salePlaceLine"/>
+                   <widget class="QLineEdit" name="salePlaceLine">
+                    <property name="text">
+                     <string>place</string>
+                    </property>
+                   </widget>
                   </item>
                   <item row="2" column="0">
                    <widget class="QLabel" name="salePriceLabel">
@@ -716,7 +756,11 @@
                  </widget>
                 </item>
                 <item row="0" column="1">
-                 <widget class="QLineEdit" name="sourceOfOriginCategoryLine"/>
+                 <widget class="QLineEdit" name="sourceOfOriginCategoryLine">
+                  <property name="text">
+                   <string>category sorce</string>
+                  </property>
+                 </widget>
                 </item>
                 <item row="1" column="0">
                  <widget class="QLabel" name="sourceOfOriginDescrLabel">
@@ -726,7 +770,11 @@
                  </widget>
                 </item>
                 <item row="1" column="1">
-                 <widget class="QLineEdit" name="sourceOfOriginDescrLine"/>
+                 <widget class="QLineEdit" name="sourceOfOriginDescrLine">
+                  <property name="text">
+                   <string>descr source</string>
+                  </property>
+                 </widget>
                 </item>
                </layout>
               </item>

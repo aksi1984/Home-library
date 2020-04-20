@@ -1,6 +1,7 @@
 #ifndef BOOKBASICNUMBERS_HPP
 #define BOOKBASICNUMBERS_HPP
 
+//#include <QVariant>
 
 class BookBasicNumbers
 {
@@ -13,7 +14,12 @@ public:
     int numberOfPages() const noexcept;
     int tome() const noexcept;
 
+
+
 private:
+
+   // QVector<QVariant> variants_;
+
     int publicationDate_;
     int edition_;
     int numberOfPages_;

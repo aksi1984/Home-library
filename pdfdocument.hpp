@@ -20,6 +20,15 @@ enum TableCol
     Data
 };
 
+inline QStringList variantToString(const QVariantList& list)
+{
+    QStringList strList;
+
+    std::generate_n(std::back_inserter(strList), list.size(), [list, i = 0]()mutable{ return list[i++].toString(); });
+
+    return strList;
+}
+
 class PdfDocument
 {
 public:
@@ -33,22 +42,9 @@ private:
     void createTableFormat();
     void createCharFormat();
 
-    void addGeneral();
-    void addRatings();
-    void addStorageLocation();
-    void addPurchase();
-    void addSeries();
-    void addTranslation();
-    void addLoaned();
-    void addLent();
-    void addSale();
-    void addSource();
-    void addAttach();
-    void addDescr();
-
+    void sendData(const QString& title, const QVariantList& varList, const QStringList& labels_t);
     void create(const QString &category, const QStringList& labels, const QStringList& data);
     QStringList getDescription(int first, int last);
-
 
     QString fileName_;
     Book book_;

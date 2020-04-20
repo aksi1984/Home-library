@@ -90,7 +90,7 @@ void BookEditor::openCategories()
 void BookEditor::addImage()
 {
     BookImage image(imageViev_->fileName());
-    book_.setImage(image);
+    //book_.setImage(image);
 
     changesHaveBeenSaved_ = false;
 }
@@ -98,7 +98,7 @@ void BookEditor::addImage()
 void BookEditor::removeImage()
 {
     BookImage image;
-    book_.setImage(image);
+    //book_.setImage(image);
 
     changesHaveBeenSaved_ = false;
 }
@@ -106,9 +106,8 @@ void BookEditor::removeImage()
 void BookEditor::saveBook()
 {
     saveBasic();
-    saveBasicNumbers();
     saveRatings();
-    saveStorageLocation();
+    /*saveStorageLocation();
     savePurchase();
     saveSeries();
     saveTranslation();
@@ -116,9 +115,9 @@ void BookEditor::saveBook()
     saveLent();
     saveSale();
     saveStatus();
-    saveSourceOfOrigin();
-    saveAdditives();
-    saveDescritpion();
+    saveSourceOfOrigin();*/
+    //saveAdditives();
+    //saveDescritpion();
 
     changesHaveBeenSaved_ = true;
 
@@ -131,255 +130,164 @@ void BookEditor::saveBook()
 void BookEditor::saveBasic()
 {
     QList<QLineEdit*> children = ui->tab->findChildren<QLineEdit*>();
-
-    QStringList data;
-
-    for(int i = 0; i < 15; ++i)
-    {
-        QString text = ( !children[i]->text().isEmpty() ? children[i]->text() : "-" );
-        data.push_back(text);
-    }
-
-    BookBasic bookBasic(data);
-    book_.setBasic(bookBasic);
-}
-
-void BookEditor::saveBasicNumbers()
-{
-    BookBasicNumbers basicNumbers(ui->publicationDateSpin->value(), ui->editionSpin->value(),
-                                  ui->numberOfPagesSpin->value(), ui->tomeSpin->value());
-
-    book_.setBasicNumbers(basicNumbers);
+    book_.basic().setData(children);
 }
 
 void BookEditor::saveRatings()
 {
-    BookRating rating(ui->pointsSpin->value(), ui->readCheckBox->isChecked(), ui->iRecommentCheck->isChecked());
-    book_.setRating(rating);
+    book_.ratings().setData(ui->pointsSpin, ui->readCheckBox, ui->iRecommentCheck);
 }
 
 void BookEditor::saveStorageLocation()
 {
-    StorageLocation location(ui->placeLine->text(), ui->roomLine->text(),
-                             ui->storageBookstandSpin->value(), ui->storageShelfSpin->value());
-
-    book_.setStorageLocation(location);
+    book_.storageLocation().setData(ui->placeLine, ui->roomLine, ui->storageBookstandSpin, ui->storageShelfSpin);
 }
 
 void BookEditor::savePurchase()
 {
-    BookPurchase purchase(ui->purchasePlaceLine->text(), ui->purchaseDate->date(),
-                          ui->purchasePriceSpin->value(), ui->purchaseValuationSpin->value());
-
-    book_.setPurchase(purchase);
+    book_.purchase().setData(ui->purchasePlaceLine, ui->purchaseDate, ui->purchasePriceSpin, ui->purchaseValuationSpin);
 }
 
 void BookEditor::saveSeries()
 {
-    BookSeries series(ui->nameLine->text(), ui->partSpin->value(), ui->numberSpin->value());
-    book_.setSeries(series);
+    book_.series().setData(ui->nameLine, ui->partSpin, ui->numberSpin);
 }
 
 void BookEditor::saveTranslation()
 {
-    BookTranslation translation(ui->fromLanguageLine->text(), ui->translationAuthorLine->text());
-    book_.setTranslation(translation);
+    book_.translation().setData(ui->fromLanguageLine, ui->translationAuthorLine);
 }
 
 void BookEditor::saveLoaned()
 {
-    BookRentalStatus loaned(ui->loanedDateDate->date(), ui->loanedToWhomLine->text());
-    book_.setLoaned(loaned);
+    book_.loaned().setData(ui->loanedDateDate, ui->loanedToWhomLine);
 }
 
 void BookEditor::saveLent()
 {
-    BookRentalStatus lent(ui->lentDateDate->date(), ui->lentToWhomLine->text());
-    book_.setLent(lent);
+    book_.lent().setData(ui->lentDateDate, ui->lentToWhomLine);
 }
 
 void BookEditor::saveSale()
 {
-    BookSale bookSale(ui->saleDateDate->date(), ui->salePlaceLine->text(), ui->salePriceSpin->value());
-    book_.setSale(bookSale);
+    book_.sale().setData(ui->saleDateDate, ui->salePlaceLine, ui->salePriceSpin);
 }
 
 void BookEditor::saveStatus()
 {
-    BookStatus bookStatus(ui->damagedCheck->isChecked(), ui->giftCheck->isChecked(), ui->usedCheck->isChecked());
-    book_.setStatus(bookStatus);
+    book_.status().setData(ui->damagedCheck, ui->giftCheck, ui->usedCheck);
 }
 
 void BookEditor::saveSourceOfOrigin()
 {
-    BookSourceOfOrigin sourceOfOrigin(ui->sourceOfOriginCategoryLine->text(), ui->sourceOfOriginDescrLine->text());
-    book_.setSourceOfOrigin(sourceOfOrigin);
-}
-
-void BookEditor::saveAdditives()
-{
-    BookAdditives additives(ui->attachmentsLine->text());
-    book_.setAdditives(additives);
+    book_.source().setData(ui->sourceOfOriginCategoryLine, ui->sourceOfOriginDescrLine, ui->attachmentsLine);
 }
 
 void BookEditor::saveDescritpion()
 {
-    BookDescriprion description(ui->commentsTextEdit->toPlainText(), ui->reviewTextEdit->toPlainText());
-    book_.setDescription(description);
+    book_.description().setData(ui->commentsTextEdit, ui->reviewTextEdit);
 }
 
 void BookEditor::loadData()
 {
     loadBasic();
-    loadBasicNumbers();
     loadRatings();
-    loadStorageLocation();
-    loadPurchase();
-    loadSeries();
-    loadTranslation();
-    loadLoaned();
-    loadLent();
-    loadSale();
-    loadStatus();
-    loadSourceOfOrigin();
-    loadAdditives();
-    loadDescription();
-    loadImage();
+    //loadStorageLocation();
+    //loadPurchase();
+    //loadSeries();
+    //loadTranslation();
+    //loadLoaned();
+    //loadLent();
+    //loadSale();
+    //loadStatus();
+    //loadSourceOfOrigin();
+    //loadAdditives();
+    //loadDescription();
+    //loadImage();*/
 }
 
 void BookEditor::loadBasic()
 {
     QList<QLineEdit*> children = ui->tab->findChildren<QLineEdit*>();
 
-    QStringList data = book_.basic().data();
-
-    for(int i = 0; i < 15; ++i)
-    {
-        children[i]->setText(data[i]);
-    }
-}
-
-void BookEditor::loadBasicNumbers()
-{
-    BookBasicNumbers basicNumbers = book_.basicNumbers();
-
-    ui->publicationDateSpin->setValue(basicNumbers.publicationDate());
-    ui->editionSpin->setValue(basicNumbers.edition());
-    ui->numberOfPagesSpin->setValue(basicNumbers.numberOfPages());
-    ui->tomeSpin->setValue(basicNumbers.tome());
+    auto variants = book_.basic().data();
+    putDataInWidget<QList<QLineEdit*>>(variants, children);
 }
 
 void BookEditor::loadRatings()
 {
-    BookRating rating = book_.rating();
-
-    ui->pointsSpin->setValue(rating.points());
-    ui->readCheckBox->setChecked(rating.isRead());
-    ui->iRecommentCheck->setChecked(rating.isRecommended());
+    auto variants = book_.ratings().data();
+    putDataInWidget<QSpinBox*, QCheckBox*, QCheckBox*>(variants, ui->pointsSpin, ui->readCheckBox, ui->iRecommentCheck);
 }
 
 void BookEditor::loadStorageLocation()
 {
-    StorageLocation location = book_.storageLocation();
-
-    ui->placeLine->setText(location.placeName());
-    ui->roomLine->setText(location.room());
-    ui->storageBookstandSpin->setValue(location.bookstand());
-    ui->storageShelfSpin->setValue(location.shelf());
+    auto variants = book_.storageLocation().data();
+    putDataInWidget<QLineEdit*, QLineEdit*, QSpinBox*, QSpinBox*>(variants, ui->placeLine, ui->roomLine, ui->storageBookstandSpin, ui->storageShelfSpin);
 }
 
 void BookEditor::loadPurchase()
 {
-    BookPurchase purchase = book_.purchase();
-
-    ui->purchasePlaceLine->setText(purchase.place());
-    ui->purchaseDate->setDate(purchase.date());
-    ui->purchasePriceSpin->setValue(purchase.price());
-    ui->purchaseValuationSpin->setValue(purchase.valuation());
+    auto variants = book_.purchase().data();
+    putDataInWidget<QLineEdit*, QDateEdit*, QDoubleSpinBox*, QDoubleSpinBox*>(variants, ui->purchasePlaceLine, ui->purchaseDate, ui->purchasePriceSpin, ui->purchaseValuationSpin);
 }
 
 void BookEditor::loadSeries()
 {
-    BookSeries series = book_.series();
-
-    ui->nameLine->setText(series.name());
-    ui->partSpin->setValue(series.part());
-    ui->numberSpin->setValue(series.number());
+    auto variants = book_.series().data();
+    putDataInWidget<QLineEdit*, QSpinBox*, QSpinBox*>(variants, ui->nameLine, ui->partSpin, ui->numberSpin);
 }
 
 void BookEditor::loadTranslation()
 {
-    BookTranslation translation = book_.translation();
-
-    ui->fromLanguageLine->setText(translation.originalLanguage());
-    ui->translationAuthor->setText(translation.author());
+    auto variants = book_.translation().data();
+    putDataInWidget<QLineEdit*, QLineEdit*>(variants, ui->fromLanguageLine, ui->translationAuthorLine);
 }
 
 void BookEditor::loadLoaned()
 {
-    BookRentalStatus loaned = book_.loaned();
-
-    ui->loanedDateDate->setDate(loaned.date());
-    ui->loanedToWhomLine->setText(loaned.personName());
+    auto variants = book_.loaned().data();
+    putDataInWidget<QDateEdit*, QLineEdit*>(variants, ui->loanedDateDate, ui->loanedToWhomLine);
 }
 
 void BookEditor::loadLent()
 {
-    BookRentalStatus lent = book_.lent();
-
-    ui->lentDateDate->setDate(lent.date());
-    ui->lentToWhomLine->setText(lent.personName());
+    auto variants = book_.lent().data();
+    putDataInWidget<QDateEdit*, QLineEdit*>(variants, ui->lentDateDate, ui->lentToWhomLine);
 }
 
 void BookEditor::loadSale()
 {
-    BookSale sale = book_.sale();
-
-    ui->saleDateDate->setDate(sale.date());
-    ui->salePlaceLine->setText(sale.personName());
-    ui->salePriceSpin->setValue(sale.price());
+    auto variants = book_.sale().data();
+    putDataInWidget<QDateEdit*, QLineEdit*, QDoubleSpinBox*>(variants, ui->saleDateDate, ui->salePlaceLine, ui->salePriceSpin);
 }
 
 void BookEditor::loadStatus()
 {
-    BookStatus status = book_.status();
-
-    ui->damagedCheck->setChecked(status.isBookDamaged());
-    ui->giftCheck->setChecked(status.isBookGift());
-    ui->usedCheck->setChecked(status.isBookUsed());
+    auto variants = book_.status().data();
+    putDataInWidget<QCheckBox*, QCheckBox*, QCheckBox*>(variants, ui->damagedCheck, ui->giftCheck, ui->usedCheck);
 }
 
 void BookEditor::loadSourceOfOrigin()
 {
-    BookSourceOfOrigin sourceOfOrigin = book_.sourceOfOrigin();
-
-    ui->sourceOfOriginCategoryLine->setText(sourceOfOrigin.category());
-    ui->sourceOfOriginDescrLine->setText(sourceOfOrigin.description());
-}
-
-void BookEditor::loadAdditives()
-{
-    BookAdditives additives = book_.additives();
-
-    ui->attachmentsLine->setText(additives.attachments());
+    auto variants = book_.source().data();
+    putDataInWidget<QLineEdit*, QLineEdit*, QLineEdit*>(variants, ui->sourceOfOriginCategoryLine, ui->sourceOfOriginDescrLine, ui->attachmentsLine);
 }
 
 void BookEditor::loadDescription()
 {
-    BookDescriprion description = book_.description();
-
-    ui->commentsTextEdit->setPlainText(description.comments());
-    ui->reviewTextEdit->setPlainText(description.review());
+    auto variants = book_.description().data();
+    putDataInWidget<QTextEdit*, QTextEdit*>(variants, ui->commentsTextEdit, ui->reviewTextEdit);
 }
 
 void BookEditor::loadImage()
 {
-    BookImage image = book_.image();
+    /*BookImage image = book_.image();
 
     if(image.fileName() != std::nullopt)
     {
         imageViev_->load(image.fileName().value());
-    }
+    }*/
 }
 
 void BookEditor::updateStyleSheet(bool isFilled)

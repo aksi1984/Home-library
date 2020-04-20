@@ -35,30 +35,45 @@ void Tree::createConnect()
     }
 }
 
+StackedWidgetEditor& Tree::editor()
+{
+    return editor_;
+}
+
 void Tree::addRow()
 {
     auto text = BooksCollection::get()[BooksCollection::get().size() - 1];//1 5
     auto basic = text.basic().data();
 
-    QStringList list;
-
-    for(int i = 0; i < labels.size() + 2; ++i)
+    for(int i = 0, j = 0; i < basic.size() - 4; ++i)
     {
         if( (i != 1) && (i != 5) )
         {
-            list.push_back(basic[i]);
+            editor_.update(basic[i].toString(), j++);
         }
-    }
-
-    for(int i = 0; i < list.size(); ++i)
-    {
-        editor_.update(list[i], i);
     }
 }
 
 QPair<QString, int> Tree::selectedItem() const noexcept
 {
     return qMakePair(selectedText_, selectedIndex_);
+}
+
+void Tree::load()
+{
+    auto books = BooksCollection::get();
+
+    for(int i = 0; i < books.size(); ++i)
+    {
+        for(int j = 0, k = 0; j < books[i].basic().data().size() - 4; ++j)
+        {
+            if( (j != 1) && (j != 5) )
+            {
+                editor_.update(books[i].basic().data()[j].toString(), k++);
+            }
+        }
+    }
+
 }
 
 void Tree::setCurrentIndex()

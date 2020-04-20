@@ -6,7 +6,7 @@
 #include <QStandardItemModel>
 
 #include "common.hpp"
-//#include "tableeditor.hpp"
+#include "settings.hpp"
 
 class StackedWidgetEditor
 {

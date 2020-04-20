@@ -20,13 +20,21 @@ void TableEditor::setTable(QTableView *tableView)
 void TableEditor::addBook(const Book &book)
 {
     resizeRows();
-    addData(book.basic().data(), itemModel_->rowCount());
+
+    auto basic = book.basic().data();
+    auto data = convert(basic);
+
+    addData(data, itemModel_->rowCount());
 }
 
 void TableEditor::updateBook(const Book &book)
 {
     itemModel_->removeRow(selectedRow_);
-    addData(book.basic().data(), selectedRow_);
+
+    auto basicData = book.basic().data();
+    auto data = convert(basicData);
+
+    addData(data, selectedRow_);
 }
 
 void TableEditor::removeBook()
@@ -68,6 +76,35 @@ bool TableEditor::isEmpty() const noexcept
     return itemModel_->rowCount() == 0;
 }
 
+void TableEditor::load()
+{
+    int rows = BooksCollection::get().size();
+
+    if(rows == 0)
+    {
+        return;
+    }
+
+    for(int i = 0; i < rows; ++i)
+    {
+        itemModel_->setRowCount(itemModel_->rowCount());
+        QVariantList varList = BooksCollection::getBook(i).basic().data();
+        QStringList data = toStringList(varList);
+
+        for(int j = 0, k = 0; j < itemModel_->columnCount(); ++j)
+        {
+            if((j != 1) && (j != 5))
+            {
+                QStandardItem* item = new QStandardItem(data[j]);
+                item->setTextAlignment(Qt::AlignCenter);
+                item->setEditable(false);
+                itemModel_->setItem(i, k, item);
+                k++;
+            }
+        }
+    }
+}
+
 //Private
 void TableEditor::resizeRows()
 {
@@ -83,11 +120,6 @@ void TableEditor::addData(const QStringList &data, int row)
         if( (i != 1) && (i != 5) )
         {
             QStandardItem* item = new QStandardItem(data[i]);
-
-            /*if( !(itemModel_->rowCount() % 2) )
-            {
-                item->setBackground(QBrush(QColor::fromRgb(172, 163, 163)));
-            }*/
 
             item->setTextAlignment(Qt::AlignCenter);
             item->setEditable(false);

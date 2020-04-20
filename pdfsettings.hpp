@@ -5,6 +5,8 @@
 #include <QCheckBox>
 #include <QTimer>
 
+
+
 namespace Ui {
 class PdfSettings;
 }

@@ -6,6 +6,7 @@
 #include <QLocale>
 #include <QMessageBox>
 
+#include "datatowidget.hpp"
 #include "categoryselection.hpp"
 #include "book.hpp"
 #include "imageview.hpp"

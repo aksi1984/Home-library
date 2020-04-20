@@ -11,19 +11,20 @@ PdfDocument::PdfDocument(const QString &reqFileName, const Book &reqBook, QList<
     checked_{checked},
     cols_{2},
     functions_{
-                [this]{ addGeneral(); },
-                [this]{ addRatings(); },
-                [this]{ addStorageLocation(); },
-                [this]{ addPurchase(); },
-                [this]{ addSeries(); },
-                [this]{ addTranslation(); },
-                [this]{ addLoaned(); },
-                [this]{ addLent(); },
-                [this]{ addSale(); },
-                [this]{ addSource(); },
-                [this]{ addAttach(); },
-                [this]{ addDescr(); }
-               }
+
+                [this]{ sendData("General", book_.basic().data(), getDescription(15, 30)); },
+                [this]{ sendData("Ratings", book_.ratings().data(), {"Points", "Read", "I recommeded"}); },
+                [this]{ sendData("Storage location", book_.storageLocation().data(), getDescription(32, 36)); },
+                [this]{ sendData("Purchase", book_.purchase().data(), getDescription(36, 40)); },
+                [this]{ sendData("Series", book_.series().data(), getDescription(0, 3)); },
+                [this]{ sendData("Translation", book_.translation().data(), getDescription(3, 5)); },
+                [this]{ sendData("Loaned", book_.loaned().data(), getDescription(5, 7)); },
+                [this]{ sendData("Lent", book_.lent().data(), getDescription(7, 9)); },
+                [this]{ sendData("Sale", book_.sale().data(), getDescription(9, 12)); },
+                [this]{ sendData("Source", book_.source().data(), getDescription(12, 15)); },
+                [this]{ sendData("Description", book_.description().data(), {"Comments", "Review"}); }
+
+              }
 {
     createPrinter();
     createTableFormat();
@@ -89,146 +90,10 @@ QStringList PdfDocument::getDescription(int first, int last)
     return descr;
 }
 
-void PdfDocument::addGeneral()
+void PdfDocument::sendData(const QString &title, const QVariantList &varList, const QStringList &labels_t)
 {
-    QStringList descr = getDescription(15, 30);
-
-    QStringList data = book_.basic().data();
-
-    data += QStringList{QString::number(book_.basicNumbers().publicationDate()),
-                        QString::number(book_.basicNumbers().numberOfPages()),
-                        QString::number(book_.basicNumbers().tome())};
-
-    create("BASIC INFORMATION", descr, data);
-}
-
-void PdfDocument::addRatings()
-{
-    QStringList descr{"Points", "Read", "Recommended"};
-
-    QString isRecommendedStr = ( book_.rating().isRecommended() ? "Yes" : "No" );
-    QString isReadStr = ( book_.rating().isRead() ? "Yes" : "No" );
-
-    QStringList data{QString::number(book_.rating().points()), isReadStr, isRecommendedStr};
-
-    create("RATINGS", descr, data);
-}
-
-void PdfDocument::addStorageLocation()
-{
-    QStringList descr = getDescription(32, 36);
-
-    QStringList data{book_.storageLocation().placeName(),
-                     book_.storageLocation().room(),
-                     QString::number(book_.storageLocation().bookstand()),
-                     QString::number(book_.storageLocation().shelf())
-                    };
-
-    create("STORAGE LOCATION", descr, data);
-}
-
-void PdfDocument::addPurchase()
-{
-    QLocale locale;
-
-    QStringList descr = getDescription(36, 40);
-
-    QStringList data{book_.purchase().place(),
-                     book_.purchase().date().toString(),
-                     QString::number(book_.purchase().price()) + " " + locale.currencySymbol(),
-                     QString::number(book_.purchase().valuation()) + " " + locale.currencySymbol()
-                    };
-
-    create("PURCHASE", descr, data);
-}
-
-void PdfDocument::addSeries()
-{
-    QStringList descr = getDescription(0, 3);
-
-    QStringList data{book_.series().name(),
-                     QString::number(book_.series().part()),
-                     QString::number(book_.series().number())
-                    };
-
-    create("SERIES", descr, data);
-}
-
-void PdfDocument::addTranslation()
-{
-    QStringList descr = getDescription(3, 5);
-
-    QStringList data{book_.translation().originalLanguage(),
-                     book_.translation().author()
-                    };
-
-    create("TRANSLATION", descr, data);
-}
-
-void PdfDocument::addLoaned()
-{
-    QStringList descr = getDescription(5, 7);
-
-    QStringList data{book_.loaned().date().toString(),
-                     book_.loaned().personName()
-                    };
-
-    create("LOANED", descr, data);
-}
-
-void PdfDocument::addLent()
-{
-    QStringList descr = getDescription(7, 9);
-
-    QStringList data{book_.lent().date().toString(),
-                     book_.lent().personName()
-                    };
-
-    create("LENT", descr, data);
-}
-
-void PdfDocument::addSale()
-{
-    QLocale locale;
-
-    QStringList descr = getDescription(9, 12);
-
-    QStringList data{book_.sale().date().toString(),
-                     book_.sale().personName(),
-                     QString::number(book_.sale().price()) + locale.currencySymbol()
-                    };
-
-    create("SALE", descr, data);
-}
-
-void PdfDocument::addSource()
-{
-    QStringList descr = getDescription(12, 14);
-
-    QStringList data{book_.sourceOfOrigin().category(),
-                     book_.sourceOfOrigin().description()
-                    };
-
-    create("SOURCE OF ORIGIN", descr, data);
-}
-
-void PdfDocument::addAttach()
-{
-    QStringList descr = getDescription(14, 15);
-    QStringList data{book_.additives().attachments()};
-
-    create("ADDITIVES", descr, data);
-}
-
-void PdfDocument::addDescr()
-{
-    QStringList descr{"Comments", "Review"};
-
-    QStringList data{book_.description().comments(),
-                     book_.description().review()
-                    };
-
-    create("DESCRIPTION", descr, data);
+    auto data = variantToString(varList);
+    create(title, labels_t, data);
 }
 
 void PdfDocument::createPrinter()

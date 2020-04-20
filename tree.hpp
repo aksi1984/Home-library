@@ -18,8 +18,10 @@ public:
     explicit Tree(QWidget *parent = nullptr);
     ~Tree();
 
+    StackedWidgetEditor& editor();
     void addRow();
     QPair<QString, int> selectedItem() const noexcept;
+    void load();
 
 signals:
     void treeItemIsSelected();

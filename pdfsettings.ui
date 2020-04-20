@@ -93,13 +93,6 @@
          </widget>
         </item>
         <item>
-         <widget class="QCheckBox" name="additivesCheckBox">
-          <property name="text">
-           <string>Additives</string>
-          </property>
-         </widget>
-        </item>
-        <item>
          <widget class="QCheckBox" name="descrCheckBox">
           <property name="text">
            <string>Description</string>

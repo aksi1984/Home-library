@@ -18,21 +18,9 @@ DEFINES += QT_DEPRECATED_WARNINGS
 
 SOURCES += \
     book.cpp \
-    bookadditives.cpp \
-    bookbasic.cpp \
-    bookbasicnumbers.cpp \
-    bookdescriprion.cpp \
     bookeditor.cpp \
     bookimage.cpp \
-    bookpurchase.cpp \
-    bookrating.cpp \
-    bookrentalstatus.cpp \
-    booksale.cpp \
     bookscollection.cpp \
-    bookseries.cpp \
-    booksourceoforigin.cpp \
-    bookstatus.cpp \
-    booktranslation.cpp \
     categories.cpp \
     categoryselection.cpp \
     configuration.cpp \
@@ -49,38 +37,30 @@ SOURCES += \
     othercategory.cpp \
     pdfdocument.cpp \
     pdfsettings.cpp \
+    settings.cpp \
     shortdescription.cpp \
     stackedwidgeteditor.cpp \
     storageplace.cpp \
     stylesheets.cpp \
     table.cpp \
     tableeditor.cpp \
-    tree.cpp \
-    treeseditor.cpp
+    tree.cpp
 
 HEADERS += \
     actionsrange.hpp \
     application.hpp \
     book.hpp \
-    bookadditives.hpp \
-    bookbasic.hpp \
-    bookbasicnumbers.hpp \
-    bookdescriprion.hpp \
+    bookdataio.hpp \
+    bookdetails.hpp \
     bookeditor.hpp \
     bookimage.hpp \
-    bookpurchase.hpp \
-    bookrating.hpp \
-    bookrentalstatus.hpp \
-    booksale.hpp \
     bookscollection.hpp \
-    bookseries.hpp \
-    booksourceoforigin.hpp \
-    bookstatus.hpp \
-    booktranslation.hpp \
     categories.hpp \
     categoryselection.hpp \
     common.hpp \
     configuration.hpp \
+    conversion.hpp \
+    datatowidget.hpp \
     dictionaries.hpp \
     fileinput.hpp \
     general.hpp \
@@ -92,6 +72,7 @@ HEADERS += \
     othercategory.hpp \
     pdfdocument.hpp \
     pdfsettings.hpp \
+    settings.hpp \
     shortdescription.hpp \
     stackedwidgeteditor.hpp \
     storageplace.hpp \
@@ -99,7 +80,7 @@ HEADERS += \
     table.hpp \
     tableeditor.hpp \
     tree.hpp \
-    treeseditor.hpp
+    value.hpp
 
 FORMS += \
     application.ui \
