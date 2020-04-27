@@ -76,7 +76,7 @@ private:
     BookDetails description_;
     BookImage bookImage_;
 
-    QStringList numbers_;
+    //QStringList numbers_;
 };
 
 #endif // BOOK_HPP
