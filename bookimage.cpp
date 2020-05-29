@@ -17,3 +17,28 @@ std::optional<QString> BookImage::fileName()
         return std::nullopt;
     }
 }
+
+void BookImage::addFileName(const QString &name)
+{
+    fileNames_.push_back(name);
+}
+
+QVector<QString> BookImage::fileNames() const noexcept
+{
+    return fileNames_;
+}
+
+void BookImage::setFileNameToShow(const QString &name)
+{
+    fileNameToShow_ = name;
+}
+
+QString BookImage::fileNameToShow() const noexcept
+{
+    return fileNameToShow_;
+}
+
+int BookImage::size() const noexcept
+{
+    return fileNames_.size();
+}

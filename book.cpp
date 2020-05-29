@@ -1,14 +1,18 @@
 #include "book.hpp"
-
+#include <QApplication>
 Book::Book() :
-    basic_(16),
-    ratings_(3),
-    storageLocation_(4),
-    purchase_(4),
-    series_(3),
-    translation_(2),
-    loaned_(2),
-    lent_(2) { }
+    basic_(16, "Basic"),
+    ratings_(3, "Ratings"),
+    storageLocation_(4, "Storage location"),
+    purchase_(4, "Purchase"),
+    series_(3, "Series"),
+    translation_(2, "Translation"),
+    loaned_(2, "Loaned"),
+    lent_(2, "Lent"),
+    sale_{3, "Sale"},
+    status_{3, "Status"},
+    sourceOfOrigin_{3, "Source of origin"},
+    description_{2, "Description"} { }
 
 void Book::setBasic(const BookDetails &data)
 {
@@ -190,7 +194,17 @@ BookDetails& Book::description()
     return description_;
 }
 
+void Book::setImage(const BookImage &image)
+{
+    bookImage_ = image;
+}
+
 BookImage Book::image() const noexcept
+{
+    return bookImage_;
+}
+
+BookImage &Book::image()
 {
     return bookImage_;
 }

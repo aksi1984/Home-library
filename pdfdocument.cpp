@@ -13,7 +13,7 @@ PdfDocument::PdfDocument(const QString &reqFileName, const Book &reqBook, QList<
     functions_{
 
                 [this]{ sendData("General", book_.basic().data(), getDescription(15, 30)); },
-                [this]{ sendData("Ratings", book_.ratings().data(), {"Points", "Read", "I recommeded"}); },
+                [this]{ sendData("Ratings", book_.ratings().data(), {"Points", "Read", "I recommended"}); },
                 [this]{ sendData("Storage location", book_.storageLocation().data(), getDescription(32, 36)); },
                 [this]{ sendData("Purchase", book_.purchase().data(), getDescription(36, 40)); },
                 [this]{ sendData("Series", book_.series().data(), getDescription(0, 3)); },

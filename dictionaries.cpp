@@ -1,6 +1,7 @@
 #include "dictionaries.hpp"
 #include "ui_dictionaries.h"
 
+
 Dictionaries::Dictionaries(QWidget *parent) :
     QDialog(parent),
     ui(new Ui::Dictionaries)
@@ -18,6 +19,9 @@ Dictionaries::~Dictionaries()
 
 void Dictionaries::initButtons()
 {
+    ui->btnOK->setEnabled(false);
+
+    connect(ui->btnOK, &QPushButton::clicked, this, &Dictionaries::accept);
     connect(ui->btnClose, &QPushButton::clicked, this, &Dictionaries::close);
     connect(ui->btnAdd, &QPushButton::clicked, this, &Dictionaries::addCategory);
     connect(ui->btnRemove, &QPushButton::clicked, this, &Dictionaries::removeCategory);
@@ -37,6 +41,8 @@ void Dictionaries::addCategory()
     {
         ui->dictionariesList->insertItem(newCategoryDialog->getPlace(), newCategoryDialog->getCategoryName());
         Categories::insert(newCategoryDialog->getPlace(), newCategoryDialog->getCategoryName());
+
+        ui->btnOK->setEnabled(true);
     }
 }
 

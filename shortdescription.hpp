@@ -5,6 +5,8 @@
 #include <QGraphicsScene>
 #include <QGraphicsTextItem>
 
+#include "book.hpp"
+
 namespace Ui {
 class ShortDescription;
 }
@@ -17,7 +19,7 @@ public:
     explicit ShortDescription(QWidget *parent = nullptr);
     ~ShortDescription();
 
-    void setText(const QString& text);
+    void setText(const Book& book);
     void setImage(const std::optional<QString> fileName);
 
 private:

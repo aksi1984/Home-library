@@ -10,8 +10,9 @@ class BookDetails
 {
 public:
     BookDetails() = default;
-    BookDetails(int sz) :
-        size_{sz} { }
+    BookDetails(int reqSize, const QString& reqStorageTypeName) :
+        size_{reqSize},
+        storageTypeName_{reqStorageTypeName} { }
 
     template<typename... Args>
     void setData(Args... args)
@@ -29,6 +30,11 @@ public:
         return data_;
     }
 
+    QString storageTypeName() const noexcept
+    {
+        return storageTypeName_;
+    }
+
     int size() const noexcept
     {
         return size_;
@@ -37,6 +43,7 @@ public:
 private:
 
     int size_;
+    QString storageTypeName_;
     QVariantList data_;
 };
 

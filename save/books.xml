@@ -1,0 +1,142 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<BOOKS>
+    <Book_0>
+        <Basic>
+            <data_0>titlefghfg</data_0>
+            <data_1></data_1>
+            <data_2></data_2>
+            <data_3></data_3>
+            <data_4></data_4>
+            <data_5></data_5>
+            <data_6></data_6>
+            <data_7></data_7>
+            <data_8></data_8>
+            <data_9></data_9>
+            <data_10></data_10>
+            <data_11></data_11>
+            <data_12>0</data_12>
+            <data_13>0</data_13>
+            <data_14>0</data_14>
+            <data_15>0</data_15>
+        </Basic>
+        <Ratings>
+            <data_0>0</data_0>
+            <data_1>false</data_1>
+            <data_2>false</data_2>
+        </Ratings>
+        <Storage location>
+            <data_0>place st</data_0>
+            <data_1>room st</data_1>
+            <data_2>0</data_2>
+            <data_3>0</data_3>
+        </Storage location>
+        <Purchase>
+            <data_0>place p</data_0>
+            <data_1>2000-01-01</data_1>
+            <data_2>0</data_2>
+            <data_3>0</data_3>
+        </Purchase>
+        <Series>
+            <data_0>name series</data_0>
+            <data_1>0</data_1>
+            <data_2>0</data_2>
+        </Series>
+        <Translation>
+            <data_0>lang</data_0>
+            <data_1>author tr</data_1>
+        </Translation>
+        <Loaned>
+            <data_0>2000-01-01</data_0>
+            <data_1>whom loaned</data_1>
+        </Loaned>
+        <Lent>
+            <data_0>2000-01-01</data_0>
+            <data_1>whom lent</data_1>
+        </Lent>
+        <Status>
+            <data_0>false</data_0>
+            <data_1>false</data_1>
+            <data_2>false</data_2>
+        </Status>
+        <Source of origin>
+            <data_0>category sorce</data_0>
+            <data_1>descr source</data_1>
+            <data_2></data_2>
+        </Source of origin>
+        <Description>
+            <data_0></data_0>
+            <data_1></data_1>
+        </Description>
+    </Book_0>
+    <Book_1>
+        <Basic>
+            <data_0>titledfg</data_0>
+            <data_1></data_1>
+            <data_2></data_2>
+            <data_3></data_3>
+            <data_4></data_4>
+            <data_5></data_5>
+            <data_6></data_6>
+            <data_7></data_7>
+            <data_8></data_8>
+            <data_9></data_9>
+            <data_10></data_10>
+            <data_11></data_11>
+            <data_12>0</data_12>
+            <data_13>0</data_13>
+            <data_14>0</data_14>
+            <data_15>0</data_15>
+        </Basic>
+        <Ratings>
+            <data_0>0</data_0>
+            <data_1>false</data_1>
+            <data_2>false</data_2>
+        </Ratings>
+        <Storage location>
+            <data_0>place st</data_0>
+            <data_1>room st</data_1>
+            <data_2>0</data_2>
+            <data_3>0</data_3>
+        </Storage location>
+        <Purchase>
+            <data_0>place p</data_0>
+            <data_1>2000-01-01</data_1>
+            <data_2>0</data_2>
+            <data_3>0</data_3>
+        </Purchase>
+        <Series>
+            <data_0>name series</data_0>
+            <data_1>0</data_1>
+            <data_2>0</data_2>
+        </Series>
+        <Translation>
+            <data_0>lang</data_0>
+            <data_1>author tr</data_1>
+        </Translation>
+        <Loaned>
+            <data_0>2000-01-01</data_0>
+            <data_1>whom loaned</data_1>
+        </Loaned>
+        <Lent>
+            <data_0>2000-01-01</data_0>
+            <data_1>whom lent</data_1>
+        </Lent>
+        <Status>
+            <data_0>false</data_0>
+            <data_1>false</data_1>
+            <data_2>false</data_2>
+        </Status>
+        <Source of origin>
+            <data_0>category sorce</data_0>
+            <data_1>descr source</data_1>
+            <data_2></data_2>
+        </Source of origin>
+        <Description>
+            <data_0></data_0>
+            <data_1></data_1>
+        </Description>
+    </Book_1>
+    <Data status>
+        <Total books>2</Total books>
+    </Data status>
+</BOOKS>

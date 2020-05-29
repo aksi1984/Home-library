@@ -21,16 +21,16 @@ public:
     ~Table();
 
     TableEditor tableEditor() const noexcept;
+    TableEditor& tableEditor();
 
     void createContextMenu(const QList<QAction*>& actions);
+    void setCategoryFromFilter(const QString& category);
 
 signals:
     void contextMenu();
 
 private slots:
     void updateSelectedTableRow();
-    void takeComboItemText();
-    void resetFilterWidgets();
     void contextMenuIsRequested(QPoint);
 
 private:

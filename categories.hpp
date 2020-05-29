@@ -2,6 +2,7 @@
 #define CATEGORIES_HPP
 
 #include <QListWidgetItem>
+
 #include "fileinput.hpp"
 
 class Categories

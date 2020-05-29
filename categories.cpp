@@ -13,7 +13,8 @@ void Categories::load(QWidget* parent)
 
 void Categories::save()
 {
-
+    FileInput fileInput;
+    fileInput.save(R"(D:\Documents\Projects\HomeLibrary\txt\categories.txt)", names);
 }
 
 QStringList Categories::get() noexcept

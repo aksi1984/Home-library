@@ -4,7 +4,8 @@
 #include <QDialog>
 #include <QTimer>
 
-#include "categories.hpp"
+//#include "categories.hpp"
+#include "dictionaries.hpp"
 
 namespace Ui {
 class CategorySelection;

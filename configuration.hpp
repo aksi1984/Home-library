@@ -3,7 +3,6 @@
 
 #include "categories.hpp"
 #include "objectsnames.hpp"
-#include "stylesheets.hpp"
 
 class Configuration
 {

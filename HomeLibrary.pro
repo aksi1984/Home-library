@@ -1,5 +1,6 @@
 QT       += core gui
 QT       += printsupport
+QT       += xml
 
 greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 
@@ -26,9 +27,10 @@ SOURCES += \
     configuration.cpp \
     dictionaries.cpp \
     fileinput.cpp \
+    filterwidget.cpp \
     general.cpp \
-    iconencoding.cpp \
     imageview.cpp \
+    languages.cpp \
     main.cpp \
     application.cpp \
     menueditor.cpp \
@@ -37,14 +39,15 @@ SOURCES += \
     othercategory.cpp \
     pdfdocument.cpp \
     pdfsettings.cpp \
+    scene.cpp \
     settings.cpp \
     shortdescription.cpp \
     stackedwidgeteditor.cpp \
     storageplace.cpp \
-    stylesheets.cpp \
     table.cpp \
     tableeditor.cpp \
-    tree.cpp
+    tree.cpp \
+    xmlfile.cpp
 
 HEADERS += \
     actionsrange.hpp \
@@ -63,24 +66,26 @@ HEADERS += \
     datatowidget.hpp \
     dictionaries.hpp \
     fileinput.hpp \
+    filterwidget.hpp \
     general.hpp \
-    iconencoding.hpp \
     imageview.hpp \
+    languages.hpp \
     menueditor.hpp \
     newcategorydialog.hpp \
     objectsnames.hpp \
     othercategory.hpp \
     pdfdocument.hpp \
     pdfsettings.hpp \
+    scene.hpp \
     settings.hpp \
     shortdescription.hpp \
     stackedwidgeteditor.hpp \
     storageplace.hpp \
-    stylesheets.hpp \
     table.hpp \
     tableeditor.hpp \
     tree.hpp \
-    value.hpp
+    value.hpp \
+    xmlfile.hpp
 
 FORMS += \
     application.ui \
@@ -88,6 +93,7 @@ FORMS += \
     categoryselection.ui \
     dialog.ui \
     dictionaries.ui \
+    filterwidget.ui \
     imageview.ui \
     newcategorydialog.ui \
     othercategory.ui \

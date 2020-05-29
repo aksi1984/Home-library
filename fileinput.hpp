@@ -17,6 +17,7 @@ public:
 
     void load(const QString& fileName, ResourceType type, QWidget* parent);
     void loadStr(const QString& fileName);
+    void save(const QString& fileName, const QStringList& data);
     QStringList getList() const noexcept;
     QString getStr() const noexcept;
 

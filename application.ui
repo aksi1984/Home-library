@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>1194</width>
-    <height>600</height>
+    <width>1122</width>
+    <height>608</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -19,8 +19,8 @@
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>1194</width>
-     <height>22</height>
+     <width>1122</width>
+     <height>21</height>
     </rect>
    </property>
    <widget class="QMenu" name="menuFile">
@@ -48,7 +48,20 @@
     <property name="title">
      <string>Settings</string>
     </property>
+    <widget class="QMenu" name="menuLanguage">
+     <property name="title">
+      <string>Language</string>
+     </property>
+     <property name="icon">
+      <iconset resource="Resource.qrc">
+       <normaloff>:/icons/icons/language.png</normaloff>:/icons/icons/language.png</iconset>
+     </property>
+     <addaction name="actionEnglish"/>
+     <addaction name="actionPolish"/>
+     <addaction name="actionSpanish"/>
+    </widget>
     <addaction name="actionDictionaries"/>
+    <addaction name="menuLanguage"/>
    </widget>
    <addaction name="menuFile"/>
    <addaction name="menuBooks"/>
@@ -56,8 +69,20 @@
   </widget>
   <widget class="QStatusBar" name="statusbar"/>
   <widget class="QToolBar" name="toolBar">
+   <property name="sizePolicy">
+    <sizepolicy hsizetype="Expanding" vsizetype="Fixed">
+     <horstretch>0</horstretch>
+     <verstretch>0</verstretch>
+    </sizepolicy>
+   </property>
    <property name="windowTitle">
-    <string>toolBar_2</string>
+    <string>toolBar</string>
+   </property>
+   <property name="toolTipDuration">
+    <number>-3</number>
+   </property>
+   <property name="toolButtonStyle">
+    <enum>Qt::ToolButtonTextUnderIcon</enum>
    </property>
    <attribute name="toolBarArea">
     <enum>TopToolBarArea</enum>
@@ -65,63 +90,109 @@
    <attribute name="toolBarBreak">
     <bool>false</bool>
    </attribute>
-   <addaction name="toolBarActionNew"/>
-   <addaction name="toolBarActionOpen"/>
-   <addaction name="toolBarActionSave"/>
-   <addaction name="toolBarActionSaveAs"/>
-   <addaction name="toolBarActionClose"/>
+   <addaction name="actionNew"/>
+   <addaction name="actionOpen"/>
+   <addaction name="actionSave"/>
+   <addaction name="actionSave_as"/>
    <addaction name="separator"/>
-   <addaction name="toolBarActionAdd"/>
-   <addaction name="toolBarActionMakeCopy"/>
-   <addaction name="toolBarActionEdit"/>
-   <addaction name="toolBarActionRemove"/>
+   <addaction name="actionAdd"/>
+   <addaction name="actionMakeCopy"/>
+   <addaction name="actionEdit"/>
+   <addaction name="actionRemove"/>
+   <addaction name="separator"/>
+   <addaction name="actionDictionaries"/>
+   <addaction name="separator"/>
+   <addaction name="actionClose"/>
   </widget>
   <action name="actionNew">
+   <property name="icon">
+    <iconset resource="Resource.qrc">
+     <normaloff>:/icons/icons/new.png</normaloff>:/icons/icons/new.png</iconset>
+   </property>
    <property name="text">
     <string>New</string>
    </property>
   </action>
   <action name="actionOpen">
+   <property name="icon">
+    <iconset resource="Resource.qrc">
+     <normaloff>:/icons/icons/open.png</normaloff>:/icons/icons/open.png</iconset>
+   </property>
    <property name="text">
     <string>Open</string>
    </property>
   </action>
   <action name="actionSave">
+   <property name="icon">
+    <iconset resource="Resource.qrc">
+     <normaloff>:/icons/icons/save.png</normaloff>:/icons/icons/save.png</iconset>
+   </property>
    <property name="text">
     <string>Save</string>
    </property>
   </action>
   <action name="actionSave_as">
+   <property name="icon">
+    <iconset resource="Resource.qrc">
+     <normaloff>:/icons/icons/save as.png</normaloff>:/icons/icons/save as.png</iconset>
+   </property>
    <property name="text">
     <string>Save as...</string>
    </property>
+   <property name="iconVisibleInMenu">
+    <bool>false</bool>
+   </property>
   </action>
   <action name="actionClose">
+   <property name="icon">
+    <iconset resource="Resource.qrc">
+     <normaloff>:/icons/icons/close.png</normaloff>:/icons/icons/close.png</iconset>
+   </property>
    <property name="text">
     <string>Close</string>
    </property>
   </action>
   <action name="actionAdd">
+   <property name="icon">
+    <iconset resource="Resource.qrc">
+     <normaloff>:/icons/icons/add.png</normaloff>:/icons/icons/add.png</iconset>
+   </property>
    <property name="text">
     <string>Add</string>
    </property>
   </action>
   <action name="actionMakeCopy">
+   <property name="icon">
+    <iconset resource="Resource.qrc">
+     <normaloff>:/icons/icons/copy.png</normaloff>:/icons/icons/copy.png</iconset>
+   </property>
    <property name="text">
     <string>Make copy</string>
    </property>
   </action>
   <action name="actionEdit">
+   <property name="icon">
+    <iconset resource="Resource.qrc">
+     <normaloff>:/icons/icons/edit.png</normaloff>:/icons/icons/edit.png</iconset>
+   </property>
    <property name="text">
     <string>Edit</string>
    </property>
   </action>
   <action name="actionRemove">
+   <property name="icon">
+    <iconset resource="Resource.qrc">
+     <normaloff>:/icons/icons/remove.png</normaloff>:/icons/icons/remove.png</iconset>
+   </property>
    <property name="text">
     <string>Remove</string>
    </property>
   </action>
   <action name="actionDictionaries">
+   <property name="icon">
+    <iconset resource="Resource.qrc">
+     <normaloff>:/icons/icons/dictionary.png</normaloff>:/icons/icons/dictionary.png</iconset>
+   </property>
    <property name="text">
     <string>Dictionaries</string>
    </property>
@@ -171,7 +242,29 @@
     <string>fff</string>
    </property>
   </action>
+  <action name="actionEnglish">
+   <property name="text">
+    <string>English</string>
+   </property>
+  </action>
+  <action name="actionPolish">
+   <property name="text">
+    <string>Spanish</string>
+   </property>
+  </action>
+  <action name="actionGerman">
+   <property name="text">
+    <string>German</string>
+   </property>
+  </action>
+  <action name="actionSpanish">
+   <property name="text">
+    <string>Polish</string>
+   </property>
+  </action>
  </widget>
- <resources/>
+ <resources>
+  <include location="Resource.qrc"/>
+ </resources>
  <connections/>
 </ui>

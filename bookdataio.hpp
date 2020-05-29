@@ -25,10 +25,13 @@ inline QDataStream& operator<<(QDataStream& out, const Book& book)
     saveBookData(book.source().data(), out);
     saveBookData(book.description().data(), out);
 
-    if(auto imageFileName = book.image().fileName(); imageFileName != std::nullopt)
-    {
-        out << imageFileName.value();
-    }
+    auto images = book.image().fileNames();
+    auto toShow = book.image().fileNameToShow();
+
+    out << images.size();
+
+    for(auto x : images) out << x;
+    out << toShow;
 
     return out;
 }
@@ -87,10 +90,21 @@ inline QDataStream& operator>>(QDataStream& in, Book& book)
     auto description = loadBookData(in, book.description().size());
     book.description().data() = description;
 
-    QString imageFileName;
-    in >> imageFileName;
+    int size;
+    in >> size;
+    QVector<QString> images;
 
-    book.setImage(BookImage{imageFileName});
+    for(int i = 0; i < size; ++i)
+    {
+        QString temp;
+        in >> temp;
+        book.image().addFileName(temp);
+    }
+
+    QString toShow;
+    in >> toShow;
+
+    book.image().setFileNameToShow(toShow);
 
     return in;
 }

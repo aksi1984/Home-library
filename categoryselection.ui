@@ -19,7 +19,123 @@
      <item>
       <layout class="QHBoxLayout" name="listLayout">
        <item>
-        <widget class="QListWidget" name="categoriesList"/>
+        <widget class="QListWidget" name="categoriesList">
+         <item>
+          <property name="text">
+           <string>Albums</string>
+          </property>
+         </item>
+         <item>
+          <property name="text">
+           <string>Biographies</string>
+          </property>
+         </item>
+         <item>
+          <property name="text">
+           <string>For children and youth</string>
+          </property>
+         </item>
+         <item>
+          <property name="text">
+           <string>Ecology</string>
+          </property>
+         </item>
+         <item>
+          <property name="text">
+           <string>Encyclopedias, dictionaries</string>
+          </property>
+         </item>
+         <item>
+          <property name="text">
+           <string>Etnography</string>
+          </property>
+         </item>
+         <item>
+          <property name="text">
+           <string>Philosophy</string>
+          </property>
+         </item>
+         <item>
+          <property name="text">
+           <string>Photography</string>
+          </property>
+         </item>
+         <item>
+          <property name="text">
+           <string>History</string>
+          </property>
+         </item>
+         <item>
+          <property name="text">
+           <string>Geography</string>
+          </property>
+         </item>
+         <item>
+          <property name="text">
+           <string>Hobby</string>
+          </property>
+         </item>
+         <item>
+          <property name="text">
+           <string>Informatics</string>
+          </property>
+         </item>
+         <item>
+          <property name="text">
+           <string>Calendars</string>
+          </property>
+         </item>
+         <item>
+          <property name="text">
+           <string>Comix</string>
+          </property>
+         </item>
+         <item>
+          <property name="text">
+           <string>Audio books</string>
+          </property>
+         </item>
+         <item>
+          <property name="text">
+           <string>Culinary</string>
+          </property>
+         </item>
+         <item>
+          <property name="text">
+           <string>Medicine</string>
+          </property>
+         </item>
+         <item>
+          <property name="text">
+           <string>Music</string>
+          </property>
+         </item>
+         <item>
+          <property name="text">
+           <string>Music notes</string>
+          </property>
+         </item>
+         <item>
+          <property name="text">
+           <string>Right</string>
+          </property>
+         </item>
+         <item>
+          <property name="text">
+           <string>Religion</string>
+          </property>
+         </item>
+         <item>
+          <property name="text">
+           <string>Sport</string>
+          </property>
+         </item>
+         <item>
+          <property name="text">
+           <string>Art</string>
+          </property>
+         </item>
+        </widget>
        </item>
       </layout>
      </item>

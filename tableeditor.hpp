@@ -23,6 +23,7 @@ class TableEditor
 public:
     TableEditor();
 
+    void setItemsText(const QStringList& list);
     void setTable(QTableView* tableView);
     void addBook(const Book& book);
     void updateBook(const Book& book);
@@ -39,10 +40,12 @@ private:
     void resizeRows();
     void addData(const QStringList& data, int row);
     void selectAllCells();
+    bool hasNotItemText(const QString &pattern);
 
     QTableView* tableView_;
     QStandardItemModel* itemModel_;
     QSortFilterProxyModel* filter_;
+    QStringList itemsText_;
 
     int selectedRow_;
 };

@@ -9,9 +9,6 @@ Tree::Tree(QWidget *parent) :
 {
     ui->setupUi(this);
 
-    ui->stackedWidget->setFixedWidth(200);
-    ui->comboBox->setFixedWidth(200);
-
     editor_.setWidget(ui->stackedWidget);
 
     createConnect();
@@ -74,6 +71,18 @@ void Tree::load()
         }
     }
 
+}
+
+QStringList Tree::itemsText()
+{
+    QStringList list;
+
+    for(int i = 0; i < ui->comboBox->count(); ++i)
+    {
+        list.push_back(ui->comboBox->itemText(i));
+    }
+
+    return list;
 }
 
 void Tree::setCurrentIndex()

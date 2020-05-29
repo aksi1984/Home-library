@@ -28,8 +28,11 @@ void putDataInWidget(const QVariantList& varList, Args... args)
     }
     else
     {
-        int count = 0;
-        (Value<Args>::get(args, varList[count++]), ...);
+        if(!varList.isEmpty())
+        {
+            int count = 0;
+            (Value<Args>::get(args, varList[count++]), ...);
+        }
     }
 };
 

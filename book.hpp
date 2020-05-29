@@ -59,6 +59,7 @@ public:
 
     void setImage(const BookImage& image);
     BookImage image() const noexcept;
+    BookImage& image();
 
 private:
 

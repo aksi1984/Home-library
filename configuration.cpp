@@ -21,5 +21,5 @@ void Configuration::loadObjectsNames()
 
 void Configuration::loadStyleSheets()
 {
-    StyleSheets::load();
+
 }

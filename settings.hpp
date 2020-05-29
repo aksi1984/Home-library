@@ -4,20 +4,8 @@
 #include "bookdataio.hpp"
 #include "conversion.hpp"
 
+
 Q_DECLARE_METATYPE(Book);
-
-/*template<typename... Ts>
-QStringList getList(Ts... ts)
-{
-    QVector<QVariant> variants;
-    ( variants.push_back(ts), ... );
-
-    QStringList list;
-
-    for(auto x : variants) list.push_back(x.toString());
-
-    return list;
-}*/
 
 class Settings
 {

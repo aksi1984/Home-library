@@ -42,6 +42,19 @@ void FileInput::load(const QString &fileName, ResourceType type, QWidget *parent
     }
 }
 
+void FileInput::save(const QString &fileName, const QStringList &data)
+{
+    QFile file(fileName);
+    file.open(QIODevice::WriteOnly | QIODevice::Text);
+
+    QTextStream textStream(&file);
+
+    for(int i = 0; i < data.size(); ++i)
+    {
+        textStream << data[i] << '\n';
+    }
+}
+
 QStringList FileInput::getList() const noexcept
 {
     return strList_;

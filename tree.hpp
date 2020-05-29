@@ -21,6 +21,7 @@ public:
     StackedWidgetEditor& editor();
     void addRow();
     QPair<QString, int> selectedItem() const noexcept;
+    QStringList itemsText();
     void load();
 
 signals:

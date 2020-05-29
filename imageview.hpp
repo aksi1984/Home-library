@@ -6,6 +6,9 @@
 #include <QPicture>
 #include <QTimer>
 #include <QGraphicsScene>
+#include <QGraphicsPixmapItem>
+
+#include "scene.hpp"
 
 namespace Ui {
 class ImageView;
@@ -20,7 +23,9 @@ public:
     ~ImageView();
 
     void load(const QString& reqFileName);
+    void setImageChecked(const QString& fileName);
     QString fileName() const noexcept;
+    Scene* scene();
 
 signals:
     void imageWasLoaded();
@@ -45,7 +50,9 @@ private:
     const int labelWidth_;
     const int labelHeight_;
 
-    QGraphicsScene scene_;
+    Scene* scene_;
+
+    int posY_;
 };
 
 #endif // IMAGEVIEW_HPP

@@ -40,15 +40,19 @@ public:
 
     Book book() const noexcept;
 
+signals:
+    void closeWithSaveData();
+    void closeWithoutSaveData();
+
 private slots:
     void openCategories();
     void saveBook();
     void addImage();
+    void setImageToShow();
     void removeImage();
     void updateWidgetsState();
     void dataWasBeenChanged();
     void createPdf();
-
     void aboutClose();
 
 private:
@@ -99,7 +103,7 @@ private:
     QStringList generalData_;
 
     Book book_;
-    ImageView* imageViev_;
+    ImageView imageViev_;
     QTimer timer_;
 
     QString defaultStyleSheet_;

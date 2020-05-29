@@ -6,6 +6,12 @@ TableEditor::TableEditor() :
     filter_{new QSortFilterProxyModel},
     selectedRow_{} { }
 
+void TableEditor::setItemsText(const QStringList &list)
+{
+    itemsText_ = list;
+    itemsText_.push_back("Check the category =>");
+}
+
 void TableEditor::setTable(QTableView *tableView)
 {
     tableView_ = tableView;
@@ -67,7 +73,9 @@ void TableEditor::setPattern(const QPair<QString, int> &data)
 
 void TableEditor::setPattern(const QString &pattern, int column)
 {
-    filter_->setFilterRegExp(pattern);
+    QString filterPattern = ( hasNotItemText(pattern) ? pattern : "" );
+
+    filter_->setFilterRegExp(filterPattern);
     filter_->setFilterKeyColumn(column);
 }
 
@@ -128,4 +136,12 @@ void TableEditor::addData(const QStringList &data, int row)
     }
 
     itemModel_->insertRow(row, itemsList);
+}
+
+bool TableEditor::hasNotItemText(const QString& pattern)
+{
+    std::size_t result = std::count_if(itemsText_.begin(), itemsText_.end(),
+                                       [pattern](const QString& str){ return pattern == str; });
+
+    return ( result == 0 ? true : false );
 }

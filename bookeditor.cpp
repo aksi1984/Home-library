@@ -1,19 +1,19 @@
 #include "bookeditor.hpp"
 #include "ui_bookeditor.h"
 #include "objectsnames.hpp"
-#include <QMessageBox>
+
 
 BookEditor::BookEditor(QWidget *parent) :
     QDialog(parent),
     ui(new Ui::BookEditor),
-    imageViev_{new ImageView(parent)},
+    imageViev_{parent},
     noFilledStyleSheet_{"border: 1px solid #ca1010;"},
     changesHaveBeenSaved_{true},
     firstTimeSaved_{false}
 {
     ui->setupUi(this);
 
-    ui->imageViewLayout->addWidget(imageViev_);
+    ui->imageViewLayout->addWidget(&imageViev_);
 
     defaultStyleSheet_ = ui->titleLine->styleSheet();
 
@@ -30,11 +30,12 @@ BookEditor::BookEditor(const Book& reqBook, QWidget* parent) :
     QDialog{parent},
     ui{new Ui::BookEditor},
     book_{reqBook},
-    imageViev_{new ImageView},
-    changesHaveBeenSaved_{true}
+    imageViev_{parent},
+    changesHaveBeenSaved_{true},
+    firstTimeSaved_{true}
 {
     ui->setupUi(this);
-    ui->imageViewLayout->addWidget(imageViev_);
+    ui->imageViewLayout->addWidget(&imageViev_);
 
     setMaximumOfDateWidget();
     initTimer();
@@ -66,8 +67,9 @@ void BookEditor::initConnect()
     connect(ui->buttonSave, &QPushButton::clicked, this, &BookEditor::saveBook);
     connect(ui->buttonOK, &QPushButton::clicked, this, &BookEditor::accept);
     connect(ui->buttonClose, &QPushButton::clicked, this, &BookEditor::aboutClose);
-    connect(imageViev_, &ImageView::imageWasLoaded, this, &BookEditor::addImage);
-    connect(imageViev_, &ImageView::imageWasRemoved, this, &BookEditor::removeImage);
+    connect(&imageViev_, &ImageView::imageWasLoaded, this, &BookEditor::addImage);
+    connect(&imageViev_, &ImageView::imageWasRemoved, this, &BookEditor::removeImage);
+    connect(imageViev_.scene(), &Scene::itemIsSelected, this, &BookEditor::setImageToShow);
 
     QList<QLineEdit*> lineEdits = ui->tabWidget->findChildren<QLineEdit*>();
 
@@ -89,16 +91,19 @@ void BookEditor::openCategories()
 
 void BookEditor::addImage()
 {
-    BookImage image(imageViev_->fileName());
-    //book_.setImage(image);
-
+    book_.image().addFileName(imageViev_.fileName());
     changesHaveBeenSaved_ = false;
+}
+
+void BookEditor::setImageToShow()
+{
+    book_.image().setFileNameToShow(imageViev_.scene()->selectedItemPatch());
 }
 
 void BookEditor::removeImage()
 {
-    BookImage image;
-    //book_.setImage(image);
+    BookImage image{};
+    book_.setImage(image);
 
     changesHaveBeenSaved_ = false;
 }
@@ -107,7 +112,7 @@ void BookEditor::saveBook()
 {
     saveBasic();
     saveRatings();
-    /*saveStorageLocation();
+    saveStorageLocation();
     savePurchase();
     saveSeries();
     saveTranslation();
@@ -115,9 +120,8 @@ void BookEditor::saveBook()
     saveLent();
     saveSale();
     saveStatus();
-    saveSourceOfOrigin();*/
-    //saveAdditives();
-    //saveDescritpion();
+    saveSourceOfOrigin();
+    saveDescritpion();
 
     changesHaveBeenSaved_ = true;
 
@@ -192,18 +196,17 @@ void BookEditor::loadData()
 {
     loadBasic();
     loadRatings();
-    //loadStorageLocation();
-    //loadPurchase();
-    //loadSeries();
-    //loadTranslation();
-    //loadLoaned();
-    //loadLent();
-    //loadSale();
-    //loadStatus();
-    //loadSourceOfOrigin();
-    //loadAdditives();
-    //loadDescription();
-    //loadImage();*/
+    loadStorageLocation();
+    loadPurchase();
+    loadSeries();
+    loadTranslation();
+    loadLoaned();
+    loadLent();
+    loadSale();
+    loadStatus();
+    loadSourceOfOrigin();
+    loadDescription();
+    loadImage();
 }
 
 void BookEditor::loadBasic()
@@ -282,12 +285,12 @@ void BookEditor::loadDescription()
 
 void BookEditor::loadImage()
 {
-    /*BookImage image = book_.image();
-
-    if(image.fileName() != std::nullopt)
+    for(int i = 0; i < book().image().fileNames().size(); ++i)
     {
-        imageViev_->load(image.fileName().value());
-    }*/
+        imageViev_.load(book().image().fileNames()[i]);
+    }
+
+    imageViev_.setImageChecked(book_.image().fileNameToShow());
 }
 
 void BookEditor::updateStyleSheet(bool isFilled)
@@ -368,6 +371,8 @@ void BookEditor::closeEvent(QCloseEvent *event)
         {
             case QMessageBox::Save:
             {
+                emit closeWithSaveData();
+
                 saveBook();
                 event->accept();
                 QDialog::accept();
@@ -375,6 +380,8 @@ void BookEditor::closeEvent(QCloseEvent *event)
             break;
             case QMessageBox::Cancel:
             {
+                emit closeWithoutSaveData();
+
                 event->ignore();
             }
             break;
